@@ -1,6 +1,6 @@
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { BenefitsGrid, CatalogMosaics, CustomArtBanner, FeatureSections, Footer, PopularCategories } from './components/Sections';
+import { CatalogMosaics, Footer } from './components/Sections';
 
 export default function App() {
   return (
@@ -8,11 +8,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <BenefitsGrid />
-        <PopularCategories />
-        <FeatureSections />
         <CatalogMosaics />
-        <CustomArtBanner />
       </main>
       <Footer />
     </div>

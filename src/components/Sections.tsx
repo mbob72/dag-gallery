@@ -2,7 +2,7 @@ import { benefits, classicArt, features, footerColumns, modernArt, popularCatego
 import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
 
-const url = (path: string) => path.startsWith('http') ? path : `${SITE_URL}${path}`;
+const url = (path: string) => path === '#' || path.startsWith('http') ? path : `${SITE_URL}${path}`;
 
 export function SectionHeading({ eyebrow, title, centered = false }: { eyebrow?: string; title: string; centered?: boolean }) {
   return (
@@ -113,10 +113,7 @@ export function ArtMosaic({ title, items }: { title: string; items: ImageLink[] 
 
 export function CatalogMosaics() {
   return (
-    <>
-      <ArtMosaic title="Картины для классических интерьеров" items={classicArt} />
-      <div className="bg-paper"><ArtMosaic title="Постеры для современных интерьеров" items={modernArt} /></div>
-    </>
+    <div className="bg-paper"><ArtMosaic title="Художник ..." items={modernArt} /></div>
   );
 }
 
@@ -147,10 +144,10 @@ export function Footer() {
       <Container>
         <div className="grid gap-10 border-b border-white/15 pb-12 md:grid-cols-[1.25fr_2fr]">
           <div>
-            <img src={url('/userdata/site/97/83/97833f0f43b85726f8241fff913ea2d3.png?v1449')} alt="Арт Постер Галерея" className="h-12 w-auto brightness-0 invert" />
-            <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">Постеры, репродукции, авторские работы и индивидуальное оформление для дома и бизнеса.</p>
-            <a href="tel:+78003503541" className="mt-6 block text-2xl font-light">8 (800) 350-35-41</a>
-            <a href="mailto:info@artpostergallery.ru" className="mt-2 block text-sm text-white/60 hover:text-white">info@artpostergallery.ru</a>
+            <h2 className="text-2xl font-light">Caspian Art Bureau</h2>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">Современное и коллекционное искусство Дагестана. Информация о галерее, художниках и работах появится позже.</p>
+            <a href="tel:+78000000000" className="mt-6 block text-2xl font-light">8 800 000 00 00</a>
+            <a href="mailto:info@example.com" className="mt-2 block text-sm text-white/60 hover:text-white">info@example.com</a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {footerColumns.map((column) => (
@@ -164,8 +161,8 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-3 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} АртПостерГалерея</span>
-          <span>React + TypeScript + Tailwind CSS</span>
+          <span>© {new Date().getFullYear()} Caspian Art Bureau</span>
+          <span>Все права защищены</span>
         </div>
       </Container>
     </footer>

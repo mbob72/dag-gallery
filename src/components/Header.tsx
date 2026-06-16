@@ -1,9 +1,9 @@
 import { useState, type ReactNode } from 'react';
-import { catalogNav, SITE_URL, topLinks } from '../data/content';
-import { CartIcon, ChevronDownIcon, CloseIcon, HeartIcon, MenuIcon, PinIcon, SearchIcon } from './icons';
+import { catalogNav, SITE_URL } from '../data/content';
+import { CartIcon, ChevronDownIcon, CloseIcon, HeartIcon, MenuIcon, ReactLogoIcon, SearchIcon } from './icons';
 import { Container } from './Container';
 
-const absolute = (href: string) => href.startsWith('http') ? href : `${SITE_URL}${href}`;
+const absolute = (href: string) => href === '#' || href.startsWith('http') ? href : `${SITE_URL}${href}`;
 
 function Badge({ children }: { children: ReactNode }) {
   return <span className="absolute -right-2 -top-2 min-w-5 rounded-full bg-accent px-1 text-center text-[11px] font-bold leading-5 text-white">{children}</span>;
@@ -14,56 +14,12 @@ export function Header() {
 
   return (
     <header className="relative z-50 bg-white text-ink">
-      <div className="hidden border-b border-black/10 lg:block">
-        <Container className="flex h-10 items-center justify-between text-xs text-black/60">
-          <nav className="flex items-center gap-5">
-            {topLinks.map((item) => (
-              <div key={item.label} className="group relative h-10 content-center">
-                <a href={absolute(item.href)} className="inline-flex items-center gap-1 transition hover:text-ink">
-                  {item.label}
-                  {item.children && <ChevronDownIcon className="size-3" />}
-                </a>
-                {item.children && (
-                  <div className="invisible absolute left-0 top-full w-64 translate-y-2 border border-black/10 bg-white p-3 opacity-0 shadow-soft transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    {item.children.map((child) => (
-                      <a key={child.label} href={absolute(child.href)} className="block px-3 py-2 text-sm text-black/70 hover:bg-paper hover:text-ink">
-                        {child.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href={absolute('/login')} className="hover:text-ink">Вход</a>
-            <span>/</span>
-            <a href={absolute('/register')} className="hover:text-ink">Регистрация</a>
-          </div>
-        </Container>
-      </div>
-
       <Container className="hidden h-24 items-center justify-between gap-8 lg:flex">
-        <a href={SITE_URL} className="shrink-0">
-          <img
-            src={`${SITE_URL}/userdata/site/1e/09/1e093833a62df1c7d7fa363cb5faf7ae.png?v1449`}
-            alt="Арт Постер Галерея"
-            className="h-14 w-auto object-contain"
-          />
+        <a href="/" className="inline-flex shrink-0 items-center gap-3 text-sky-500" aria-label="На главную">
+          <ReactLogoIcon className="size-14" />
+          <span className="sr-only">Caspian Art Bureau</span>
         </a>
-        <div className="ml-auto flex items-center gap-8">
-          <div className="flex items-center gap-2 text-sm text-black/65">
-            <PinIcon className="size-5 text-accent" />
-            <div>
-              <div className="font-medium text-ink">Зеленоград</div>
-              <div>пр-т Панфиловский, корп. 1215</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <a href="tel:+78003503541" className="block text-lg font-bold tracking-wide">8 (800) 350-35-41</a>
-            <button className="text-sm text-accent hover:underline">Заказать звонок</button>
-          </div>
-        </div>
+        <a href="tel:+78000000000" className="ml-auto block text-lg font-bold tracking-wide">8 800 000 00 00</a>
       </Container>
 
       <div className="border-y border-black/10 bg-[#f6f6f4]">
@@ -118,8 +74,8 @@ export function Header() {
         <button onClick={() => setMenuOpen(true)} aria-label="Открыть меню" className="p-2">
           <MenuIcon className="size-7" />
         </button>
-        <a href={SITE_URL}>
-          <img src={`${SITE_URL}/userdata/site/97/83/97833f0f43b85726f8241fff913ea2d3.png?v1449`} alt="Арт Постер Галерея" className="h-10 w-auto" />
+        <a href="/" className="text-sky-500" aria-label="На главную">
+          <ReactLogoIcon className="size-10" />
         </a>
         <div className="flex items-center gap-3">
           <button aria-label="Поиск"><SearchIcon className="size-6" /></button>

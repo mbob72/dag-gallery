@@ -34,55 +34,49 @@ export const topLinks: NavItem[] = [
 export const catalogNav: NavItem[] = [
   {
     label: 'Репродукции картин',
-    href: '/catalog/reprodukcii-kartin-i-kartiny-na-stenu-1',
+    href: '#',
     children: [
-      { label: 'Абстракция', href: '/catalog/abstrakciya-5' },
-      { label: 'Пейзаж', href: '/catalog/kartiny-peyzazhi-8524' },
-      { label: 'Города и страны', href: '/catalog/gorod-art-7937' },
-      { label: 'Натюрморт', href: '/catalog/natyurmort-21' },
-      { label: 'Цветы', href: '/catalog/cvety-art-7930' },
-      { label: 'Картины с животными', href: '/catalog/animalizm-520' },
+      { label: 'Абстракция', href: '#' },
+      { label: 'Пейзаж', href: '#' },
+      { label: 'Города и страны', href: '#' },
+      { label: 'Натюрморт', href: '#' },
+      { label: 'Цветы', href: '#' },
+      { label: 'Картины с животными', href: '#' },
     ],
   },
   {
     label: 'Арт-постеры',
-    href: '/catalog/postery-6',
+    href: '#',
     children: [
-      { label: 'Пейзажи', href: '/catalog/peyzazhi-272' },
-      { label: 'Архитектура', href: '/catalog/arhitektura-9' },
-      { label: 'Минимализм', href: '/catalog/minimalizm-10573' },
-      { label: 'Скандинавский стиль', href: '/catalog/postery-v-skandinavskom-stile-9291' },
-      { label: 'Для кухни', href: '/catalog/dlya-kuhni-i-stolovoy-441' },
-      { label: 'Детские', href: '/catalog/detskie-440' },
+      { label: 'Пейзажи', href: '#' },
+      { label: 'Архитектура', href: '#' },
+      { label: 'Минимализм', href: '#' },
+      { label: 'Скандинавский стиль', href: '#' },
+      { label: 'Для кухни', href: '#' },
+      { label: 'Детские', href: '#' },
     ],
   },
-  { label: 'Ретро и винтаж', href: '/catalog/retro-i-vintazh-7' },
-  { label: 'Гравюры', href: '/catalog/gravyury-estampy-i-akvareli-gea-6444' },
-  { label: 'Картины из ваших фото', href: '/photoart' },
-  { label: 'Картины маслом и акрилом', href: '/catalog/kartiny-maslom-1-13759' },
+  { label: 'Ретро и винтаж', href: '#' },
+  { label: 'Гравюры', href: '#' },
+  { label: 'Картины из ваших фото', href: '#' },
+  { label: 'Картины маслом и акрилом', href: '#' },
 ];
 
 export const heroSlides = [
   {
     image: '/userdata/homepage/slider/resized/3e/09/3e091e3a5623ec44a59c7c95fd6c5d63_1200_webp.webp?v1449',
-    eyebrow: 'Интерьерная коллекция',
-    title: 'Искусство, которое подходит вашему пространству',
-    href: '/catalog/postery-6',
-    button: 'Смотреть каталог',
+    title: 'Caspian Art Bureau',
+    subtitle: 'Современное и коллекционное искусство Дагестана',
   },
   {
     image: '/userdata/homepage/slider/resized/c5/f4/c5f4b1222390ed071cb8a4c795d688d7_1200_webp.webp?v1449',
-    eyebrow: 'Классика',
-    title: 'Репродукции известных картин',
-    href: '/catalog/reprodukcii-kartin-i-kartiny-na-stenu-1',
-    button: 'Выбрать работу',
+    title: 'Caspian Art Bureau',
+    subtitle: 'Современное и коллекционное искусство Дагестана',
   },
   {
     image: '/userdata/homepage/slider/resized/2c/13/2c13634c3906f51da78881cc0e564ddf_1200_webp.webp?v1449',
-    eyebrow: 'Современное искусство',
-    title: 'Фото-постеры для лаконичных интерьеров',
-    href: '/catalog/postery-6',
-    button: 'Перейти',
+    title: 'Caspian Art Bureau',
+    subtitle: 'Современное и коллекционное искусство Дагестана',
   },
 ];
 
@@ -164,14 +158,14 @@ export const modernArt: ImageLink[] = [
 export const footerColumns = [
   {
     title: 'Каталог',
-    links: ['Репродукции картин', 'Арт-постеры', 'Ретро и винтаж', 'Гравюры', 'Картины из фото'],
+    links: ['Живопись', 'Графика', 'Скульптура', 'Фотография', 'Коллекции'],
   },
   {
-    title: 'Покупателям',
-    links: ['Как заказать', 'Доставка и оплата', 'Вопрос / ответ', 'Акции', 'Галерея работ'],
+    title: 'Информация',
+    links: ['О бюро', 'Художники', 'Выставки', 'Доставка и оплата', 'Контакты'],
   },
   {
-    title: 'Компания',
-    links: ['О компании', 'Контакты', 'Для бизнеса', 'Дизайнерам', 'Блог'],
+    title: 'Контакты',
+    links: ['Махачкала', '8 800 000 00 00', 'info@example.com', 'Telegram', 'Instagram'],
   },
 ];

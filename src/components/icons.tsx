@@ -22,6 +22,19 @@ export function CartIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M3 3h2l2.4 11.3a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /></svg>;
 }
 
+export function ReactLogoIcon(props: IconProps) {
+  return (
+    <svg viewBox="-11.5 -10.2 23 20.4" aria-hidden="true" {...props}>
+      <circle cx="0" cy="0" r="2.05" fill="currentColor" />
+      <g fill="none" stroke="currentColor" strokeWidth="1">
+        <ellipse rx="11" ry="4.2" />
+        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+      </g>
+    </svg>
+  );
+}
+
 export function MenuIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M4 7h16M4 12h16M4 17h16" /></svg>;
 }

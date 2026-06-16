@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { heroSlides, SITE_URL } from '../data/content';
-import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
 
 export function Hero() {
@@ -21,11 +20,8 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent" />
               <div className="absolute inset-0 flex items-center">
                 <div className="max-w-2xl px-7 text-white sm:px-12 lg:px-16">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] sm:text-sm">{slide.eyebrow}</p>
                   <h1 className="max-w-xl text-4xl font-light leading-[1.05] sm:text-6xl lg:text-7xl">{slide.title}</h1>
-                  <a href={`${SITE_URL}${slide.href}`} className="mt-8 inline-flex items-center gap-3 border border-white bg-white px-6 py-3 text-sm font-bold text-ink transition hover:bg-transparent hover:text-white">
-                    {slide.button}<ArrowRightIcon className="size-5" />
-                  </a>
+                  <p className="mt-5 max-w-xl text-lg leading-7 text-white/85 sm:text-2xl">{slide.subtitle}</p>
                 </div>
               </div>
             </div>
