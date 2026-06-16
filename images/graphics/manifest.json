@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "filename": "artwork_01_pdf_page_08.png",
+    "pdf_page": 8,
+    "printed_page": 6,
+    "visible_title": "",
+    "width_px": 639,
+    "height_px": 739,
+    "format": "PNG"
+  },
+  {
+    "id": 2,
+    "filename": "artwork_02_pdf_page_09.png",
+    "pdf_page": 9,
+    "printed_page": 7,
+    "visible_title": "Лесополоса",
+    "width_px": 741,
+    "height_px": 637,
+    "format": "PNG"
+  },
+  {
+    "id": 3,
+    "filename": "artwork_03_pdf_page_10.png",
+    "pdf_page": 10,
+    "printed_page": 8,
+    "visible_title": "",
+    "width_px": 639,
+    "height_px": 738,
+    "format": "PNG"
+  },
+  {
+    "id": 4,
+    "filename": "artwork_04_pdf_page_11.png",
+    "pdf_page": 11,
+    "printed_page": 9,
+    "visible_title": "Тутовник",
+    "width_px": 639,
+    "height_px": 738,
+    "format": "PNG"
+  },
+  {
+    "id": 5,
+    "filename": "artwork_05_pdf_page_12.png",
+    "pdf_page": 12,
+    "printed_page": 10,
+    "visible_title": "Урожайный год",
+    "width_px": 740,
+    "height_px": 641,
+    "format": "PNG"
+  },
+  {
+    "id": 6,
+    "filename": "artwork_06_pdf_page_14.png",
+    "pdf_page": 14,
+    "printed_page": 12,
+    "visible_title": "Старый карагач",
+    "width_px": 740,
+    "height_px": 640,
+    "format": "PNG"
+  },
+  {
+    "id": 7,
+    "filename": "artwork_07_pdf_page_16.png",
+    "pdf_page": 16,
+    "printed_page": 14,
+    "visible_title": "",
+    "width_px": 644,
+    "height_px": 745,
+    "format": "PNG"
+  },
+  {
+    "id": 8,
+    "filename": "artwork_08_pdf_page_18.png",
+    "pdf_page": 18,
+    "printed_page": 16,
+    "visible_title": "Февраль",
+    "width_px": 641,
+    "height_px": 744,
+    "format": "PNG"
+  },
+  {
+    "id": 9,
+    "filename": "artwork_09_pdf_page_20.png",
+    "pdf_page": 20,
+    "printed_page": 18,
+    "visible_title": "Дожди прошли",
+    "width_px": 640,
+    "height_px": 738,
+    "format": "PNG"
+  },
+  {
+    "id": 10,
+    "filename": "artwork_10_pdf_page_21.png",
+    "pdf_page": 21,
+    "printed_page": 19,
+    "visible_title": "Кружева",
+    "width_px": 747,
+    "height_px": 643,
+    "format": "PNG"
+  },
+  {
+    "id": 11,
+    "filename": "artwork_11_pdf_page_22.png",
+    "pdf_page": 22,
+    "printed_page": 20,
+    "visible_title": "",
+    "width_px": 741,
+    "height_px": 643,
+    "format": "PNG"
+  },
+  {
+    "id": 12,
+    "filename": "artwork_12_pdf_page_24.png",
+    "pdf_page": 24,
+    "printed_page": 22,
+    "visible_title": "Побеги",
+    "width_px": 512,
+    "height_px": 755,
+    "format": "PNG"
+  },
+  {
+    "id": 13,
+    "filename": "artwork_13_pdf_page_26.png",
+    "pdf_page": 26,
+    "printed_page": 24,
+    "visible_title": "Артезиан",
+    "width_px": 637,
+    "height_px": 741,
+    "format": "PNG"
+  },
+  {
+    "id": 14,
+    "filename": "artwork_14_pdf_page_28.png",
+    "pdf_page": 28,
+    "printed_page": 26,
+    "visible_title": "Обитель",
+    "width_px": 643,
+    "height_px": 744,
+    "format": "PNG"
+  },
+  {
+    "id": 15,
+    "filename": "artwork_15_pdf_page_30.png",
+    "pdf_page": 30,
+    "printed_page": 28,
+    "visible_title": "Лоза",
+    "width_px": 741,
+    "height_px": 640,
+    "format": "PNG"
+  },
+  {
+    "id": 16,
+    "filename": "artwork_16_pdf_page_32.png",
+    "pdf_page": 32,
+    "printed_page": 30,
+    "visible_title": "",
+    "width_px": 736,
+    "height_px": 640,
+    "format": "PNG"
+  },
+  {
+    "id": 17,
+    "filename": "artwork_17_pdf_page_33.png",
+    "pdf_page": 33,
+    "printed_page": 31,
+    "visible_title": "",
+    "width_px": 641,
+    "height_px": 739,
+    "format": "PNG"
+  },
+  {
+    "id": 18,
+    "filename": "artwork_18_pdf_page_34.png",
+    "pdf_page": 34,
+    "printed_page": 32,
+    "visible_title": "Ива",
+    "width_px": 639,
+    "height_px": 738,
+    "format": "PNG"
+  },
+  {
+    "id": 19,
+    "filename": "artwork_19_pdf_page_36.png",
+    "pdf_page": 36,
+    "printed_page": 34,
+    "visible_title": "",
+    "width_px": 639,
+    "height_px": 744,
+    "format": "PNG"
+  },
+  {
+    "id": 20,
+    "filename": "artwork_20_pdf_page_38.png",
+    "pdf_page": 38,
+    "printed_page": 36,
+    "visible_title": "",
+    "width_px": 508,
+    "height_px": 757,
+    "format": "PNG"
+  },
+  {
+    "id": 21,
+    "filename": "artwork_21_pdf_page_40.png",
+    "pdf_page": 40,
+    "printed_page": 38,
+    "visible_title": "Патриарх",
+    "width_px": 644,
+    "height_px": 742,
+    "format": "PNG"
+  },
+  {
+    "id": 22,
+    "filename": "artwork_22_pdf_page_42.png",
+    "pdf_page": 42,
+    "printed_page": 40,
+    "visible_title": "",
+    "width_px": 740,
+    "height_px": 644,
+    "format": "PNG"
+  },
+  {
+    "id": 23,
+    "filename": "artwork_23_pdf_page_44.png",
+    "pdf_page": 44,
+    "printed_page": 42,
+    "visible_title": "",
+    "width_px": 745,
+    "height_px": 451,
+    "format": "PNG"
+  },
+  {
+    "id": 24,
+    "filename": "artwork_24_pdf_page_46.png",
+    "pdf_page": 46,
+    "printed_page": 44,
+    "visible_title": "Отдых в пути",
+    "width_px": 743,
+    "height_px": 640,
+    "format": "PNG"
+  },
+  {
+    "id": 25,
+    "filename": "artwork_25_pdf_page_47.png",
+    "pdf_page": 47,
+    "printed_page": 45,
+    "visible_title": "",
+    "width_px": 640,
+    "height_px": 738,
+    "format": "PNG"
+  },
+  {
+    "id": 26,
+    "filename": "artwork_26_pdf_page_48.png",
+    "pdf_page": 48,
+    "printed_page": 46,
+    "visible_title": "",
+    "width_px": 508,
+    "height_px": 759,
+    "format": "PNG"
+  },
+  {
+    "id": 27,
+    "filename": "artwork_27_pdf_page_49.png",
+    "pdf_page": 49,
+    "printed_page": 47,
+    "visible_title": "",
+    "width_px": 512,
+    "height_px": 758,
+    "format": "PNG"
+  },
+  {
+    "id": 28,
+    "filename": "artwork_28_pdf_page_52.png",
+    "pdf_page": 52,
+    "printed_page": null,
+    "visible_title": "",
+    "width_px": 483,
+    "height_px": 558,
+    "format": "PNG"
+  }
+]

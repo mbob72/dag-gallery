@@ -1,0 +1,39 @@
+﻿index,file,title,slug,category,series,medium,dimensions,year,price_rub,pdf_page,width_px,height_px,format
+1,images/01_belaya-skazka_p02.jpeg,Белая сказка,belaya-skazka,Живопись,,"холст, масло",115x100 см,2021,330000,2,526,605,JPEG
+2,images/02_sny_p03.jpeg,Сны,sny,Живопись,,"холст, масло",120x120 см,2017,770000,3,763,763,JPEG
+3,images/03_nayada_p03.jpeg,Наяда,nayada,Живопись,,"холст, масло",80x65 см,2016,165000,3,431,530,JPEG
+4,images/04_krasnaya-gora_p04.jpeg,Красная гора,krasnaya-gora,Живопись,,"холст, масло",120x120 см,2023,385000,4,541,528,JPEG
+5,images/05_vyshe-neba_p04.jpeg,Выше неба,vyshe-neba,Живопись,,"холст, масло",120x120 см,2018,385000,4,526,528,JPEG
+6,images/06_vysokogornaya-pastoral_p05.jpeg,Высокогорная пастораль,vysokogornaya-pastoral,Живопись,,"холст, масло",60x85 см,2024,165000,5,689,469,JPEG
+7,images/07_vertikal_p05.jpeg,Вертикаль,vertikal,Живопись,,"холст, масло",95x40 см,2024,175000,5,313,749,JPEG
+8,images/08_leshch-goryachego-kopcheniya_p06.jpeg,Лещ горячего копчения,leshch-goryachego-kopcheniya,Живопись,,"холст, масло",60x60 см,2024,80000,6,485,478,JPEG
+9,images/09_hrizantemy-v-polosatoy-vaze_p06.png,Хризантемы в полосатой вазе,hrizantemy-v-polosatoy-vaze,Живопись,,"холст, масло",40x60 см,2025,50000,6,1022,1280,PNG
+10,images/10_dve-vody_p07.jpeg,Две воды,dve-vody,Живопись,,"холст, масло",40x60 см,2024,55000,7,643,419,JPEG
+11,images/11_fragment-1_p08.jpeg,Фрагмент 1,fragment-1,Живопись,Фрагменты (триптих),"холст, масло",60x60 см,2023,55000,8,359,354,JPEG
+12,images/12_fragment-2_p08.jpeg,Фрагмент 2,fragment-2,Живопись,Фрагменты (триптих),"холст, масло",60x60 см,2023,55000,8,356,354,JPEG
+13,images/13_fragment-3_p08.jpeg,Фрагмент 3,fragment-3,Живопись,Фрагменты (триптих),"холст, масло",60x60 см,2023,55000,8,349,354,JPEG
+14,images/14_serebryanoe-i-zolotoe_p09.jpeg,Серебряное и золотое,serebryanoe-i-zolotoe,Живопись,,"холст, масло",135x63 см,2023,450000,9,355,749,JPEG
+15,images/15_vdoh-vydoh_p10.jpeg,Вдох-Выдох,vdoh-vydoh,Живопись,,"холст, масло",95x80 см,2019,90000,10,481,575,JPEG
+16,images/16_natyurmort-s-shipovnikom_p10.jpeg,Натюрморт с шиповником,natyurmort-s-shipovnikom,Живопись,,"картон, масло",57x79 см,2012,35000,10,369,260,JPEG
+17,images/17_glad_p10.jpeg,Гладь,glad,Живопись,,"холст, масло","30,5x40 см",2023,25000,10,370,277,JPEG
+18,images/18_edem_p11.jpeg,Эдем,edem,Живопись,,"холст, масло",130x90 см,2017,330000,11,445,642,JPEG
+19,images/19_chabanskiy-obed_p11.jpeg,Чабанский обед,chabanskiy-obed,Живопись,,"холст, масло",85x106 см,2023,330000,11,628,506,JPEG
+20,images/20_izobilie-noch_p12.jpeg,Изобилие. Ночь,izobilie-noch,Живопись,,"холст, масло",90x150 см,2013,330000,12,667,400,JPEG
+21,images/21_izobilie-utro_p12.jpeg,Изобилие. Утро,izobilie-utro,Живопись,,"холст, масло",90x90 см,2013,175000,12,400,400,JPEG
+22,images/22_utrenniy-veter_p13.jpeg,Утренний ветер,utrenniy-veter,Живопись,,"холст, масло",120x95 см,2014,330000,13,418,526,JPEG
+23,images/23_tihaya-voda_p13.jpeg,Тихая вода,tihaya-voda,Живопись,,"холст, масло",140x140 см,2014,800000,13,526,526,JPEG
+24,images/24_avgust_p14.jpeg,Август,avgust,Живопись,,"холст, масло",90x75 см,2018,85000,14,398,476,JPEG
+25,images/25_koshka_p14.jpeg,Кошка,koshka,Живопись,,"холст, масло",100x80 см,2011,300000,14,595,476,JPEG
+26,images/26_plener-2014_p15.jpeg,Пленэр,plener-2014,Живопись,,"холст, масло",100x95 см,2014,330000,15,526,554,JPEG
+27,images/27_k-vechnomu_p15.jpeg,К вечному,k-vechnomu,Живопись,,"холст, масло",45x60 см,2014,45000,15,526,391,JPEG
+28,images/28_plener-2024_p16.jpeg,Пленэр,plener-2024,Живопись,,"холст, масло",60x40 см,2024,45000,16,505,750,JPEG
+29,images/29_dyhanie-gor_p17.jpeg,Дыхание гор,dyhanie-gor,Живопись,,"холст, масло",65x90 см,2008,50000,17,369,265,JPEG
+30,images/30_na-novye-luga_p17.jpeg,На новые луга,na-novye-luga,Живопись,,"холст, масло",60x100 см,2008,60000,17,369,221,JPEG
+31,images/31_tumannyy-vecher_p17.jpeg,Туманный вечер,tumannyy-vecher,Живопись,,"картон, масло",50x70 см,2007,40000,17,369,263,JPEG
+32,images/32_etyud-v-pastelnyh-tonah_p19.jpeg,Этюд в пастельных тонах,etyud-v-pastelnyh-tonah,Графика,,"бумага, масляная пастель, уголь, сепия",58x78 см,2022,45000,19,492,355,JPEG
+33,images/33_orbaku_p19.jpeg,Орбаку,orbaku,Графика,,"бумага, масляная пастель",42x59 см,2022,30000,19,492,363,JPEG
+34,images/34_hunzah_p20.jpeg,Хунзах,hunzah,Графика,,"бумага, сепия, пастель",40x48 см,2019,50000,20,600,458,JPEG
+35,images/35_chayhana_p20.jpeg,Чайхана,chayhana,Графика,,"бумага, сангина",25x45 см,2018,25000,20,600,274,JPEG
+36,images/36_ryba-mechty_p21.jpeg,Рыба мечты,ryba-mechty,Графика,,"бумага, итальянский карандаш",23x50 см,2022,25000,21,565,248,JPEG
+37,images/37_rybonka_p21.jpeg,Рыбонька,rybonka,Графика,,"бумага, итальянский карандаш",25x42 см,2022,25000,21,580,352,JPEG
+38,images/38_vozhak_p23.png,Вожак,vozhak,Объекты,,"тыква лагенария, кожа, темпера, лак",15x20 см,2023,20000,23,677,508,PNG
