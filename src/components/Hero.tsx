@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { heroSlides, SITE_URL } from '../data/content';
 import { Container } from './Container';

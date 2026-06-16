@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, type ReactNode } from 'react';
 import { catalogNav, SITE_URL } from '../data/content';
 import { CartIcon, ChevronDownIcon, CloseIcon, HeartIcon, MenuIcon, ReactLogoIcon, SearchIcon } from './icons';

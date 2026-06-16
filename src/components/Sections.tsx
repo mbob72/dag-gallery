@@ -1,4 +1,4 @@
-import { benefits, classicArt, features, footerColumns, modernArt, popularCategories, SITE_URL, type ImageLink } from '../data/content';
+import { benefits, classicArt, features, footerColumns, heroSlides, modernArt, popularCategories, SITE_URL, type ImageLink } from '../data/content';
 import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
 
@@ -10,6 +10,21 @@ export function SectionHeading({ eyebrow, title, centered = false }: { eyebrow?:
       {eyebrow && <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">{eyebrow}</p>}
       <h2 className="text-3xl font-light leading-tight text-ink sm:text-4xl lg:text-5xl">{title}</h2>
     </div>
+  );
+}
+
+export function HomeIntro() {
+  const [intro] = heroSlides;
+
+  return (
+    <section className="bg-white py-12 sm:py-16">
+      <Container>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-light leading-tight text-ink sm:text-5xl">{intro.title}</h2>
+          <p className="mt-4 text-lg leading-8 text-black/60 sm:text-2xl">{intro.subtitle}</p>
+        </div>
+      </Container>
+    </section>
   );
 }
 

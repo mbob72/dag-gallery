@@ -4,11 +4,12 @@ node_modules/
 # Build outputs
 dist/
 build/
+.next/
 
 # TypeScript
 *.tsbuildinfo
 
-# Vite
+# Framework caches
 .vite/
 
 # Environment variables

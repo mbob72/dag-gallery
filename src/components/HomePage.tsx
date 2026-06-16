@@ -1,13 +1,14 @@
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { CatalogMosaics, Footer } from './components/Sections';
+import { Header } from './Header';
+import { Hero } from './Hero';
+import { CatalogMosaics, Footer, HomeIntro } from './Sections';
 
-export default function App() {
+export function HomePage() {
   return (
     <div className="min-h-screen bg-white text-ink">
       <Header />
       <main>
         <Hero />
+        <HomeIntro />
         <CatalogMosaics />
       </main>
       <Footer />
