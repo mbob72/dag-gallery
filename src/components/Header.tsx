@@ -37,10 +37,10 @@ export function Header() {
               Поиск
             </button>
           </form>
-          <a href={absolute('/user')} className="relative flex items-center gap-2 px-2 text-sm font-medium">
+          <a href="/user" className="relative flex items-center gap-2 px-2 text-sm font-medium">
             <HeartIcon className="size-6" /> Избранное <Badge>0</Badge>
           </a>
-          <a href={absolute('/order')} className="relative flex items-center gap-2 px-2 text-sm font-medium">
+          <a href="/order" className="relative flex items-center gap-2 px-2 text-sm font-medium">
             <CartIcon className="size-6" /> Корзина <Badge>0</Badge>
           </a>
         </Container>
@@ -81,7 +81,7 @@ export function Header() {
         </a>
         <div className="flex items-center gap-3">
           <button aria-label="Поиск"><SearchIcon className="size-6" /></button>
-          <a href={absolute('/order')} className="relative"><CartIcon className="size-6" /><Badge>0</Badge></a>
+          <a href="/order" className="relative"><CartIcon className="size-6" /><Badge>0</Badge></a>
         </div>
       </div>
 
