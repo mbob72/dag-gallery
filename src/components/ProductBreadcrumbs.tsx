@@ -1,4 +1,3 @@
-import { SITE_URL } from '../data/content';
 import { Container } from './Container';
 
 export type BreadcrumbItem = {
@@ -6,7 +5,7 @@ export type BreadcrumbItem = {
   href: string;
 };
 
-const href = (path: string) => path === '#' || path.startsWith('http') ? path : `${SITE_URL}${path}`;
+const href = (path: string) => path;
 
 export function ProductBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
