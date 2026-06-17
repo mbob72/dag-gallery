@@ -65,3 +65,11 @@ export const categoryGalleryItems = categories.flatMap((category) => {
 export function getArtworkById(id: string) {
   return artworks.find((artwork) => artwork.id === id);
 }
+
+export function getCategoryById(id: string) {
+  return categories.find((category) => category.id === id);
+}
+
+export function getArtworksByCategoryId(id: string) {
+  return artworks.filter((artwork) => artwork.category.includes(id));
+}
