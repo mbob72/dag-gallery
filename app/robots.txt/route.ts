@@ -10,6 +10,8 @@ export function GET(request: Request) {
     [
       'User-Agent: *',
       'Allow: /',
+      'Disallow: /order',
+      'Disallow: /user',
       '',
       `Host: ${host}`,
       `Sitemap: ${new URL('/sitemap.xml', origin).toString()}`,
