@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductPage } from '../../../src/components/ProductPage';
 import { artworks, getArtworkById } from '../../../src/data/artworks';
+import { getArtworkSeo, toMetadata } from '../../../src/data/seo';
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -20,15 +21,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!artwork) {
     return {
       title: 'Постер не найден',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: artwork.title,
-    description: [artwork.title, artwork.category_label, artwork.medium, artwork.dimensions]
-      .filter(Boolean)
-      .join(' · '),
-  };
+  return toMetadata(getArtworkSeo(artwork));
 }
 
 export default async function Page({ params }: PageProps) {

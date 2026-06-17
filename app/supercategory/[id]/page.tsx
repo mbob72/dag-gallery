@@ -6,6 +6,7 @@ import {
   getSupercategoryById,
   supercategories,
 } from '../../../src/data/artworks';
+import { getSupercategorySeo, toMetadata } from '../../../src/data/seo';
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -24,13 +25,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!supercategory) {
     return {
       title: 'Раздел не найден',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: `${supercategory.title} | Caspian Art Bureau`,
-    description: supercategory.description,
-  };
+  return toMetadata(getSupercategorySeo(supercategory, getArtworksBySupercategoryId(id).length));
 }
 
 export default async function Page({ params }: PageProps) {
