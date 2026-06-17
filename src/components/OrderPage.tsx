@@ -2,6 +2,7 @@ import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
 import { OrderCartItems, type OrderCartItem } from './OrderCartItems';
 import { OrderSummary } from './OrderSummary';
 import { Container } from './Container';
+import { Footer } from './Sections';
 
 const breadcrumbs: BreadcrumbItem[] = [
   { label: 'Главная', href: '/' },
@@ -40,17 +41,20 @@ const cartItems: OrderCartItem[] = [
 
 export function OrderPage() {
   return (
-    <>
+    <div className="flex min-h-0 flex-1 flex-col">
       <ProductBreadcrumbs items={breadcrumbs} />
-      <section className="bg-white py-8 sm:py-12">
-        <Container>
-          <h1 className="mb-7 text-3xl font-light leading-tight text-ink sm:text-5xl">Корзина</h1>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-            <OrderCartItems items={cartItems} />
-            <OrderSummary />
-          </div>
-        </Container>
-      </section>
-    </>
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        <section className="bg-white py-8 sm:py-12">
+          <Container>
+            <h1 className="mb-7 text-3xl font-light leading-tight text-ink sm:text-5xl">Корзина</h1>
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+              <OrderCartItems items={cartItems} />
+              <OrderSummary />
+            </div>
+          </Container>
+        </section>
+        <Footer />
+      </div>
+    </div>
   );
 }

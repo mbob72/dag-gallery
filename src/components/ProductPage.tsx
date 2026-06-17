@@ -1,6 +1,7 @@
 import { ProductArtwork, type ArtworkProduct } from './ProductArtwork';
 import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
 import type { ArtworkItem } from '../data/artworks';
+import { Footer } from './Sections';
 
 function getBreadcrumbs(artwork: ArtworkItem): BreadcrumbItem[] {
   return [
@@ -28,9 +29,12 @@ function getProduct(artwork: ArtworkItem): ArtworkProduct {
 
 export function ProductPage({ artwork }: { artwork: ArtworkItem }) {
   return (
-    <>
+    <div className="flex min-h-0 flex-1 flex-col">
       <ProductBreadcrumbs items={getBreadcrumbs(artwork)} />
-      <ProductArtwork product={getProduct(artwork)} />
-    </>
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        <ProductArtwork product={getProduct(artwork)} />
+        <Footer />
+      </div>
+    </div>
   );
 }

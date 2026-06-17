@@ -15,7 +15,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-50 bg-white text-ink">
+    <header className="relative z-50 shrink-0 bg-white text-ink">
       <Container className="hidden h-24 items-center justify-between gap-8 lg:flex">
         <a href="/" className="inline-flex shrink-0 items-center gap-3" aria-label="На главную">
           <img src="/brand/logo-cab-monogram.svg" alt="" className="size-28" />

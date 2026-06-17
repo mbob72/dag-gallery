@@ -9,7 +9,7 @@ const href = (path: string) => path;
 
 export function ProductBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <section className="border-b border-black/10 bg-white py-5">
+    <section className="shrink-0 border-b border-black/10 bg-white py-5">
       <Container>
         <div className="flex flex-col gap-4 text-sm text-black/55 lg:flex-row lg:items-center">
           <a href="/" className="w-fit font-medium text-ink transition hover:text-accent">

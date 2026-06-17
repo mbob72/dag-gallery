@@ -1,4 +1,5 @@
 import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
+import { Footer } from './Sections';
 import { UserArtworkList, type UserArtworkItem } from './UserArtworkList';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -30,10 +31,13 @@ const favoriteItems: UserArtworkItem[] = [
 
 export function UserCollectionPage() {
   return (
-    <>
+    <div className="flex min-h-0 flex-1 flex-col">
       <ProductBreadcrumbs items={breadcrumbs} />
-      <UserArtworkList title="У вас в корзине" items={cartItems} />
-      <UserArtworkList title="У вас в избранном" items={favoriteItems} />
-    </>
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        <UserArtworkList title="У вас в корзине" items={cartItems} />
+        <UserArtworkList title="У вас в избранном" items={favoriteItems} />
+        <Footer />
+      </div>
+    </div>
   );
 }

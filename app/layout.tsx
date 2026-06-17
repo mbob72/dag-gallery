@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Header } from '../src/components/Header';
-import { Footer } from '../src/components/Sections';
 import '../src/styles.css';
 
 export const metadata: Metadata = {
@@ -12,10 +11,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ru">
       <body>
-        <div className="min-h-screen bg-white text-ink">
+        <div className="flex h-dvh flex-col overflow-hidden bg-white text-ink">
           <Header />
-          <main>{children}</main>
-          <Footer />
+          <main className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</main>
         </div>
       </body>
     </html>
