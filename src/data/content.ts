@@ -1,5 +1,3 @@
-export const SITE_URL = 'https://artpostergallery.ru';
-
 export type NavItem = {
   label: string;
   href: string;

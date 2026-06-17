@@ -1,5 +1,3 @@
-import { SITE_URL } from '../data/content';
-
 export type OrderCartItem = {
   id: string;
   title: string;
@@ -12,8 +10,6 @@ export type OrderCartItem = {
   totalText?: string;
   actions?: string[];
 };
-
-const src = (path: string) => path.startsWith('http') ? path : `${SITE_URL}${path}`;
 
 function Price({ value }: { value: string }) {
   return value.toLowerCase() === 'бесплатно' ? (
@@ -29,8 +25,8 @@ export function OrderCartItems({ items }: { items: OrderCartItem[] }) {
       {items.map((item) => {
         const image = (
           <div className="relative aspect-[4/3] bg-[#f7f7f4] p-4">
-            <img src={src(item.image)} alt={item.title} className="h-full w-full object-contain" />
-            {item.badge && <img src={src(item.badge)} alt="" className="absolute right-3 top-3 size-11 object-contain" />}
+            <img src={item.image} alt={item.title} className="h-full w-full object-contain" />
+            {item.badge && <img src={item.badge} alt="" className="absolute right-3 top-3 size-11 object-contain" />}
           </div>
         );
 

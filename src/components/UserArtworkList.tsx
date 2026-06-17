@@ -1,4 +1,3 @@
-import { SITE_URL } from '../data/content';
 import { Container } from './Container';
 
 export type UserArtworkItem = {
@@ -9,8 +8,6 @@ export type UserArtworkItem = {
   author: string;
   href: string;
 };
-
-const imageSrc = (path: string) => path.startsWith('http') ? path : `${SITE_URL}${path}`;
 
 export function UserArtworkList({ title, items }: { title: string; items: UserArtworkItem[] }) {
   return (
@@ -26,7 +23,7 @@ export function UserArtworkList({ title, items }: { title: string; items: UserAr
             <a key={item.id} href={item.href} className="group block border border-black/10 bg-white transition hover:-translate-y-0.5 hover:shadow-soft">
               <div className="aspect-[4/3] bg-[#f7f7f4] p-4">
                 <img
-                  src={imageSrc(item.image)}
+                  src={item.image}
                   alt={item.title}
                   className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]"
                 />

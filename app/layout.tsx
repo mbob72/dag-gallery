@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { Header } from '../src/components/Header';
-import { SITE_URL } from '../src/data/content';
 import { getHomeSeo, toMetadata } from '../src/data/seo';
 import '../src/styles.css';
 
+const homeSeo = getHomeSeo();
+
 export const metadata: Metadata = {
-  ...toMetadata(getHomeSeo()),
-  metadataBase: new URL(SITE_URL),
+  ...toMetadata(homeSeo),
   title: {
-    default: getHomeSeo().title,
+    default: homeSeo.title,
     template: `%s | Caspian Art Bureau`,
   },
   applicationName: 'Caspian Art Bureau',

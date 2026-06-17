@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import type { ArtworkCategory, ArtworkItem, ArtworkSupercategory } from './artworks';
-import { SITE_URL } from './content';
 
 type SeoSource = 'site-taxonomy' | 'competitor-structure' | 'wordstat-seed' | 'webmaster-slot';
 
@@ -39,8 +38,6 @@ export type ResolvedSeoPage = SeoPageInput & {
 };
 
 const SITE_NAME = 'Caspian Art Bureau';
-const DEFAULT_IMAGE = '/brand/logo-cab-brush.svg';
-
 const siteScope: SeoScope = {
   id: 'site',
   route: '/',
@@ -188,18 +185,6 @@ function compactUnique(values: Array<string | undefined>) {
   return Array.from(new Set(values.map((value) => value?.trim()).filter((value): value is string => Boolean(value))));
 }
 
-function absoluteUrl(path = '/') {
-  return new URL(path, SITE_URL).toString();
-}
-
-function absoluteImageUrl(path?: string) {
-  if (!path) {
-    return absoluteUrl(DEFAULT_IMAGE);
-  }
-
-  return path.startsWith('http') ? path : absoluteUrl(path);
-}
-
 function resolveSeoPage(input: SeoPageInput): ResolvedSeoPage {
   const keywords = compactUnique([
     ...input.scopes.flatMap((scope) => scope.tags),
@@ -331,9 +316,6 @@ export function getUtilitySeo(id: keyof typeof utilitySeo) {
 }
 
 export function toMetadata(page: ResolvedSeoPage): Metadata {
-  const url = absoluteUrl(page.route);
-  const image = absoluteImageUrl(page.image);
-
   return {
     title: {
       absolute: page.title,
@@ -341,27 +323,19 @@ export function toMetadata(page: ResolvedSeoPage): Metadata {
     description: page.description,
     keywords: page.keywords,
     alternates: {
-      canonical: url,
+      canonical: page.route,
     },
     openGraph: {
       title: page.title,
       description: page.description,
-      url,
       siteName: SITE_NAME,
       locale: 'ru_RU',
       type: page.route === '/' ? 'website' : 'article',
-      images: [
-        {
-          url: image,
-          alt: page.h1 ?? page.title,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: page.title,
       description: page.description,
-      images: [image],
     },
     robots: page.noindex
       ? {

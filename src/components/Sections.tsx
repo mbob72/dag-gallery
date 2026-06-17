@@ -1,9 +1,9 @@
-import { benefits, features, footerColumns, heroSlides, popularCategories, SITE_URL, type ImageLink } from '../data/content';
+import { benefits, features, footerColumns, heroSlides, popularCategories, type ImageLink } from '../data/content';
 import { categoryGalleryItems } from '../data/artworks';
 import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
 
-const url = (path: string) => path === '#' || path.startsWith('http') ? path : `${SITE_URL}${path}`;
+const url = (path: string) => path;
 
 export function SectionHeading({ eyebrow, title, centered = false }: { eyebrow?: string; title: string; centered?: boolean }) {
   return (
