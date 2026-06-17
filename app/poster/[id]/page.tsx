@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: artwork.title,
-    description: [artwork.title, artwork.category, artwork.medium, artwork.dimensions]
+    description: [artwork.title, artwork.category_label, artwork.medium, artwork.dimensions]
       .filter(Boolean)
       .join(' · '),
   };

@@ -4,7 +4,9 @@
     "file": "images/01_belaya-skazka_p02.jpeg",
     "title": "Белая сказка",
     "slug": "belaya-skazka",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "115x100 см",
@@ -20,7 +22,9 @@
     "file": "images/02_sny_p03.jpeg",
     "title": "Сны",
     "slug": "sny",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "120x120 см",
@@ -36,7 +40,9 @@
     "file": "images/03_nayada_p03.jpeg",
     "title": "Наяда",
     "slug": "nayada",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "80x65 см",
@@ -52,7 +58,9 @@
     "file": "images/04_krasnaya-gora_p04.jpeg",
     "title": "Красная гора",
     "slug": "krasnaya-gora",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "120x120 см",
@@ -68,7 +76,9 @@
     "file": "images/05_vyshe-neba_p04.jpeg",
     "title": "Выше неба",
     "slug": "vyshe-neba",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "120x120 см",
@@ -84,7 +94,9 @@
     "file": "images/06_vysokogornaya-pastoral_p05.jpeg",
     "title": "Высокогорная пастораль",
     "slug": "vysokogornaya-pastoral",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "60x85 см",
@@ -100,7 +112,9 @@
     "file": "images/07_vertikal_p05.jpeg",
     "title": "Вертикаль",
     "slug": "vertikal",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "95x40 см",
@@ -116,7 +130,9 @@
     "file": "images/08_leshch-goryachego-kopcheniya_p06.jpeg",
     "title": "Лещ горячего копчения",
     "slug": "leshch-goryachego-kopcheniya",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "60x60 см",
@@ -132,7 +148,9 @@
     "file": "images/09_hrizantemy-v-polosatoy-vaze_p06.png",
     "title": "Хризантемы в полосатой вазе",
     "slug": "hrizantemy-v-polosatoy-vaze",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "40x60 см",
@@ -148,7 +166,9 @@
     "file": "images/10_dve-vody_p07.jpeg",
     "title": "Две воды",
     "slug": "dve-vody",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "40x60 см",
@@ -164,7 +184,9 @@
     "file": "images/11_fragment-1_p08.jpeg",
     "title": "Фрагмент 1",
     "slug": "fragment-1",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "Фрагменты (триптих)",
     "medium": "холст, масло",
     "dimensions": "60x60 см",
@@ -180,7 +202,9 @@
     "file": "images/12_fragment-2_p08.jpeg",
     "title": "Фрагмент 2",
     "slug": "fragment-2",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "Фрагменты (триптих)",
     "medium": "холст, масло",
     "dimensions": "60x60 см",
@@ -196,7 +220,9 @@
     "file": "images/13_fragment-3_p08.jpeg",
     "title": "Фрагмент 3",
     "slug": "fragment-3",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "Фрагменты (триптих)",
     "medium": "холст, масло",
     "dimensions": "60x60 см",
@@ -212,7 +238,9 @@
     "file": "images/14_serebryanoe-i-zolotoe_p09.jpeg",
     "title": "Серебряное и золотое",
     "slug": "serebryanoe-i-zolotoe",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "135x63 см",
@@ -228,7 +256,9 @@
     "file": "images/15_vdoh-vydoh_p10.jpeg",
     "title": "Вдох-Выдох",
     "slug": "vdoh-vydoh",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "95x80 см",
@@ -244,7 +274,9 @@
     "file": "images/16_natyurmort-s-shipovnikom_p10.jpeg",
     "title": "Натюрморт с шиповником",
     "slug": "natyurmort-s-shipovnikom",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "картон, масло",
     "dimensions": "57x79 см",
@@ -260,7 +292,9 @@
     "file": "images/17_glad_p10.jpeg",
     "title": "Гладь",
     "slug": "glad",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "30,5x40 см",
@@ -276,7 +310,9 @@
     "file": "images/18_edem_p11.jpeg",
     "title": "Эдем",
     "slug": "edem",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "130x90 см",
@@ -292,7 +328,9 @@
     "file": "images/19_chabanskiy-obed_p11.jpeg",
     "title": "Чабанский обед",
     "slug": "chabanskiy-obed",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "85x106 см",
@@ -308,7 +346,9 @@
     "file": "images/20_izobilie-noch_p12.jpeg",
     "title": "Изобилие. Ночь",
     "slug": "izobilie-noch",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "90x150 см",
@@ -324,7 +364,9 @@
     "file": "images/21_izobilie-utro_p12.jpeg",
     "title": "Изобилие. Утро",
     "slug": "izobilie-utro",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "90x90 см",
@@ -340,7 +382,9 @@
     "file": "images/22_utrenniy-veter_p13.jpeg",
     "title": "Утренний ветер",
     "slug": "utrenniy-veter",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "120x95 см",
@@ -356,7 +400,9 @@
     "file": "images/23_tihaya-voda_p13.jpeg",
     "title": "Тихая вода",
     "slug": "tihaya-voda",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "140x140 см",
@@ -372,7 +418,9 @@
     "file": "images/24_avgust_p14.jpeg",
     "title": "Август",
     "slug": "avgust",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "90x75 см",
@@ -388,7 +436,9 @@
     "file": "images/25_koshka_p14.jpeg",
     "title": "Кошка",
     "slug": "koshka",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "100x80 см",
@@ -404,7 +454,9 @@
     "file": "images/26_plener-2014_p15.jpeg",
     "title": "Пленэр",
     "slug": "plener-2014",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "100x95 см",
@@ -420,7 +472,9 @@
     "file": "images/27_k-vechnomu_p15.jpeg",
     "title": "К вечному",
     "slug": "k-vechnomu",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "45x60 см",
@@ -436,7 +490,9 @@
     "file": "images/28_plener-2024_p16.jpeg",
     "title": "Пленэр",
     "slug": "plener-2024",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "60x40 см",
@@ -452,7 +508,9 @@
     "file": "images/29_dyhanie-gor_p17.jpeg",
     "title": "Дыхание гор",
     "slug": "dyhanie-gor",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "65x90 см",
@@ -468,7 +526,9 @@
     "file": "images/30_na-novye-luga_p17.jpeg",
     "title": "На новые луга",
     "slug": "na-novye-luga",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "холст, масло",
     "dimensions": "60x100 см",
@@ -484,7 +544,9 @@
     "file": "images/31_tumannyy-vecher_p17.jpeg",
     "title": "Туманный вечер",
     "slug": "tumannyy-vecher",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "картон, масло",
     "dimensions": "50x70 см",
@@ -500,7 +562,9 @@
     "file": "images/32_etyud-v-pastelnyh-tonah_p19.jpeg",
     "title": "Этюд в пастельных тонах",
     "slug": "etyud-v-pastelnyh-tonah",
-    "category": "Графика",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "бумага, масляная пастель, уголь, сепия",
     "dimensions": "58x78 см",
@@ -516,7 +580,9 @@
     "file": "images/33_orbaku_p19.jpeg",
     "title": "Орбаку",
     "slug": "orbaku",
-    "category": "Графика",
+    "category": [
+      "landscape"
+    ],
     "series": "",
     "medium": "бумага, масляная пастель",
     "dimensions": "42x59 см",
@@ -532,7 +598,9 @@
     "file": "images/34_hunzah_p20.jpeg",
     "title": "Хунзах",
     "slug": "hunzah",
-    "category": "Графика",
+    "category": [
+      "portrait"
+    ],
     "series": "",
     "medium": "бумага, сепия, пастель",
     "dimensions": "40x48 см",
@@ -548,7 +616,9 @@
     "file": "images/35_chayhana_p20.jpeg",
     "title": "Чайхана",
     "slug": "chayhana",
-    "category": "Графика",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "бумага, сангина",
     "dimensions": "25x45 см",
@@ -564,7 +634,9 @@
     "file": "images/36_ryba-mechty_p21.jpeg",
     "title": "Рыба мечты",
     "slug": "ryba-mechty",
-    "category": "Графика",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "бумага, итальянский карандаш",
     "dimensions": "23x50 см",
@@ -580,7 +652,9 @@
     "file": "images/37_rybonka_p21.jpeg",
     "title": "Рыбонька",
     "slug": "rybonka",
-    "category": "Графика",
+    "category": [
+      "still-life"
+    ],
     "series": "",
     "medium": "бумага, итальянский карандаш",
     "dimensions": "25x42 см",
@@ -596,7 +670,9 @@
     "file": "images/38_vozhak_p23.png",
     "title": "Вожак",
     "slug": "vozhak",
-    "category": "Объекты",
+    "category": [
+      "art-object"
+    ],
     "series": "",
     "medium": "тыква лагенария, кожа, темпера, лак",
     "dimensions": "15x20 см",

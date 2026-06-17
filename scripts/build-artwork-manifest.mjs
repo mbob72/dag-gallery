@@ -7,6 +7,8 @@ const publicRoot = 'public/artworks';
 
 const painting = JSON.parse(readFileSync('images/painting/manifest.json', 'utf8'));
 const graphics = JSON.parse(readFileSync('images/graphics/manifest.json', 'utf8'));
+const categories = JSON.parse(readFileSync('images/categories.json', 'utf8'));
+const categoryIds = new Set(categories.map((category) => category.id));
 
 const translitMap = new Map(Object.entries({
   а: 'a',
@@ -61,7 +63,7 @@ function normalizePainting(item) {
     source_id: `painting-${item.index}`,
     title: item.title,
     slug: item.slug,
-    category: item.category,
+    category: normalizeCategory(item.category),
     collection: 'painting',
     series: item.series,
     medium: item.medium,
@@ -86,7 +88,7 @@ function normalizeGraphics(item) {
     source_id: `graphics-${item.id}`,
     title,
     slug: `graphics-${slugBase}`,
-    category: 'Графика',
+    category: normalizeCategory(item.category || ['graphics']),
     collection: 'graphics',
     series: '',
     medium: '',
@@ -103,12 +105,23 @@ function normalizeGraphics(item) {
   };
 }
 
+function normalizeCategory(value) {
+  const ids = Array.isArray(value) ? value : [value];
+  for (const id of ids) {
+    if (!categoryIds.has(id)) {
+      throw new Error(`Unknown category id: ${id}`);
+    }
+  }
+
+  return ids;
+}
+
 function csvValue(value) {
   if (value === null || value === undefined) {
     return '';
   }
 
-  const normalized = String(value);
+  const normalized = Array.isArray(value) ? value.join(';') : String(value);
   if (/[",\n]/.test(normalized)) {
     return `"${normalized.replace(/"/g, '""')}"`;
   }
@@ -150,6 +163,7 @@ const columns = [
 ];
 
 writeFileSync(join(publicRoot, 'manifest.json'), `${JSON.stringify(artworks, null, 2)}\n`);
+writeFileSync(join(publicRoot, 'categories.json'), `${JSON.stringify(categories, null, 2)}\n`);
 writeFileSync(
   join(publicRoot, 'manifest.csv'),
   `${columns.join(',')}\n${artworks.map((item) => columns.map((column) => csvValue(item[column])).join(',')).join('\n')}\n`,

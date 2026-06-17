@@ -4,7 +4,9 @@
     "source_id": "painting-1",
     "title": "Белая сказка",
     "slug": "belaya-skazka",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -24,7 +26,9 @@
     "source_id": "painting-2",
     "title": "Сны",
     "slug": "sny",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -44,7 +48,9 @@
     "source_id": "painting-3",
     "title": "Наяда",
     "slug": "nayada",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -64,7 +70,9 @@
     "source_id": "painting-4",
     "title": "Красная гора",
     "slug": "krasnaya-gora",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -84,7 +92,9 @@
     "source_id": "painting-5",
     "title": "Выше неба",
     "slug": "vyshe-neba",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -104,7 +114,9 @@
     "source_id": "painting-6",
     "title": "Высокогорная пастораль",
     "slug": "vysokogornaya-pastoral",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -124,7 +136,9 @@
     "source_id": "painting-7",
     "title": "Вертикаль",
     "slug": "vertikal",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -144,7 +158,9 @@
     "source_id": "painting-8",
     "title": "Лещ горячего копчения",
     "slug": "leshch-goryachego-kopcheniya",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -164,7 +180,9 @@
     "source_id": "painting-9",
     "title": "Хризантемы в полосатой вазе",
     "slug": "hrizantemy-v-polosatoy-vaze",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -184,7 +202,9 @@
     "source_id": "painting-10",
     "title": "Две воды",
     "slug": "dve-vody",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -204,7 +224,9 @@
     "source_id": "painting-11",
     "title": "Фрагмент 1",
     "slug": "fragment-1",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "Фрагменты (триптих)",
     "medium": "холст, масло",
@@ -224,7 +246,9 @@
     "source_id": "painting-12",
     "title": "Фрагмент 2",
     "slug": "fragment-2",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "Фрагменты (триптих)",
     "medium": "холст, масло",
@@ -244,7 +268,9 @@
     "source_id": "painting-13",
     "title": "Фрагмент 3",
     "slug": "fragment-3",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "Фрагменты (триптих)",
     "medium": "холст, масло",
@@ -264,7 +290,9 @@
     "source_id": "painting-14",
     "title": "Серебряное и золотое",
     "slug": "serebryanoe-i-zolotoe",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -284,7 +312,9 @@
     "source_id": "painting-15",
     "title": "Вдох-Выдох",
     "slug": "vdoh-vydoh",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -304,7 +334,9 @@
     "source_id": "painting-16",
     "title": "Натюрморт с шиповником",
     "slug": "natyurmort-s-shipovnikom",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "картон, масло",
@@ -324,7 +356,9 @@
     "source_id": "painting-17",
     "title": "Гладь",
     "slug": "glad",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -344,7 +378,9 @@
     "source_id": "painting-18",
     "title": "Эдем",
     "slug": "edem",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -364,7 +400,9 @@
     "source_id": "painting-19",
     "title": "Чабанский обед",
     "slug": "chabanskiy-obed",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -384,7 +422,9 @@
     "source_id": "painting-20",
     "title": "Изобилие. Ночь",
     "slug": "izobilie-noch",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -404,7 +444,9 @@
     "source_id": "painting-21",
     "title": "Изобилие. Утро",
     "slug": "izobilie-utro",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -424,7 +466,9 @@
     "source_id": "painting-22",
     "title": "Утренний ветер",
     "slug": "utrenniy-veter",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -444,7 +488,9 @@
     "source_id": "painting-23",
     "title": "Тихая вода",
     "slug": "tihaya-voda",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -464,7 +510,9 @@
     "source_id": "painting-24",
     "title": "Август",
     "slug": "avgust",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -484,7 +532,9 @@
     "source_id": "painting-25",
     "title": "Кошка",
     "slug": "koshka",
-    "category": "Живопись",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -504,7 +554,9 @@
     "source_id": "painting-26",
     "title": "Пленэр",
     "slug": "plener-2014",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -524,7 +576,9 @@
     "source_id": "painting-27",
     "title": "К вечному",
     "slug": "k-vechnomu",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -544,7 +598,9 @@
     "source_id": "painting-28",
     "title": "Пленэр",
     "slug": "plener-2024",
-    "category": "Живопись",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -564,7 +620,9 @@
     "source_id": "painting-29",
     "title": "Дыхание гор",
     "slug": "dyhanie-gor",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -584,7 +642,9 @@
     "source_id": "painting-30",
     "title": "На новые луга",
     "slug": "na-novye-luga",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "холст, масло",
@@ -604,7 +664,9 @@
     "source_id": "painting-31",
     "title": "Туманный вечер",
     "slug": "tumannyy-vecher",
-    "category": "Живопись",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "картон, масло",
@@ -624,7 +686,9 @@
     "source_id": "painting-32",
     "title": "Этюд в пастельных тонах",
     "slug": "etyud-v-pastelnyh-tonah",
-    "category": "Графика",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "бумага, масляная пастель, уголь, сепия",
@@ -644,7 +708,9 @@
     "source_id": "painting-33",
     "title": "Орбаку",
     "slug": "orbaku",
-    "category": "Графика",
+    "category": [
+      "landscape"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "бумага, масляная пастель",
@@ -664,7 +730,9 @@
     "source_id": "painting-34",
     "title": "Хунзах",
     "slug": "hunzah",
-    "category": "Графика",
+    "category": [
+      "portrait"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "бумага, сепия, пастель",
@@ -684,7 +752,9 @@
     "source_id": "painting-35",
     "title": "Чайхана",
     "slug": "chayhana",
-    "category": "Графика",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "бумага, сангина",
@@ -704,7 +774,9 @@
     "source_id": "painting-36",
     "title": "Рыба мечты",
     "slug": "ryba-mechty",
-    "category": "Графика",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "бумага, итальянский карандаш",
@@ -724,7 +796,9 @@
     "source_id": "painting-37",
     "title": "Рыбонька",
     "slug": "rybonka",
-    "category": "Графика",
+    "category": [
+      "still-life"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "бумага, итальянский карандаш",
@@ -744,7 +818,9 @@
     "source_id": "painting-38",
     "title": "Вожак",
     "slug": "vozhak",
-    "category": "Объекты",
+    "category": [
+      "art-object"
+    ],
     "collection": "painting",
     "series": "",
     "medium": "тыква лагенария, кожа, темпера, лак",
@@ -764,7 +840,9 @@
     "source_id": "graphics-1",
     "title": "Без названия 1",
     "slug": "graphics-bez-nazvaniya-1",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -784,7 +862,9 @@
     "source_id": "graphics-2",
     "title": "Лесополоса",
     "slug": "graphics-lesopolosa",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -804,7 +884,9 @@
     "source_id": "graphics-3",
     "title": "Без названия 3",
     "slug": "graphics-bez-nazvaniya-3",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -824,7 +906,9 @@
     "source_id": "graphics-4",
     "title": "Тутовник",
     "slug": "graphics-tutovnik",
-    "category": "Графика",
+    "category": [
+      "graphics-animals"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -844,7 +928,9 @@
     "source_id": "graphics-5",
     "title": "Урожайный год",
     "slug": "graphics-urozhaynyy-god",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -864,7 +950,9 @@
     "source_id": "graphics-6",
     "title": "Старый карагач",
     "slug": "graphics-staryy-karagach",
-    "category": "Графика",
+    "category": [
+      "graphics-people"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -884,7 +972,9 @@
     "source_id": "graphics-7",
     "title": "Без названия 7",
     "slug": "graphics-bez-nazvaniya-7",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -904,7 +994,9 @@
     "source_id": "graphics-8",
     "title": "Февраль",
     "slug": "graphics-fevral",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -924,7 +1016,9 @@
     "source_id": "graphics-9",
     "title": "Дожди прошли",
     "slug": "graphics-dozhdi-proshli",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -944,7 +1038,9 @@
     "source_id": "graphics-10",
     "title": "Кружева",
     "slug": "graphics-kruzheva",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -964,7 +1060,9 @@
     "source_id": "graphics-11",
     "title": "Без названия 11",
     "slug": "graphics-bez-nazvaniya-11",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -984,7 +1082,9 @@
     "source_id": "graphics-12",
     "title": "Побеги",
     "slug": "graphics-pobegi",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1004,7 +1104,9 @@
     "source_id": "graphics-13",
     "title": "Артезиан",
     "slug": "graphics-artezian",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1024,7 +1126,9 @@
     "source_id": "graphics-14",
     "title": "Обитель",
     "slug": "graphics-obitel",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1044,7 +1148,9 @@
     "source_id": "graphics-15",
     "title": "Лоза",
     "slug": "graphics-loza",
-    "category": "Графика",
+    "category": [
+      "graphics-animals"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1064,7 +1170,9 @@
     "source_id": "graphics-16",
     "title": "Без названия 16",
     "slug": "graphics-bez-nazvaniya-16",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1084,7 +1192,9 @@
     "source_id": "graphics-17",
     "title": "Без названия 17",
     "slug": "graphics-bez-nazvaniya-17",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1104,7 +1214,9 @@
     "source_id": "graphics-18",
     "title": "Ива",
     "slug": "graphics-iva",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1124,7 +1236,9 @@
     "source_id": "graphics-19",
     "title": "Без названия 19",
     "slug": "graphics-bez-nazvaniya-19",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1144,7 +1258,9 @@
     "source_id": "graphics-20",
     "title": "Без названия 20",
     "slug": "graphics-bez-nazvaniya-20",
-    "category": "Графика",
+    "category": [
+      "graphics-animals"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1164,7 +1280,9 @@
     "source_id": "graphics-21",
     "title": "Патриарх",
     "slug": "graphics-patriarh",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1184,7 +1302,9 @@
     "source_id": "graphics-22",
     "title": "Без названия 22",
     "slug": "graphics-bez-nazvaniya-22",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1204,7 +1324,9 @@
     "source_id": "graphics-23",
     "title": "Без названия 23",
     "slug": "graphics-bez-nazvaniya-23",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1224,7 +1346,9 @@
     "source_id": "graphics-24",
     "title": "Отдых в пути",
     "slug": "graphics-otdyh-v-puti",
-    "category": "Графика",
+    "category": [
+      "graphics"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1244,7 +1368,9 @@
     "source_id": "graphics-25",
     "title": "Без названия 25",
     "slug": "graphics-bez-nazvaniya-25",
-    "category": "Графика",
+    "category": [
+      "graphics-people"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1264,7 +1390,9 @@
     "source_id": "graphics-26",
     "title": "Без названия 26",
     "slug": "graphics-bez-nazvaniya-26",
-    "category": "Графика",
+    "category": [
+      "graphics-animals"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1284,7 +1412,9 @@
     "source_id": "graphics-27",
     "title": "Без названия 27",
     "slug": "graphics-bez-nazvaniya-27",
-    "category": "Графика",
+    "category": [
+      "graphics-birds"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",
@@ -1304,7 +1434,9 @@
     "source_id": "graphics-28",
     "title": "Без названия 28",
     "slug": "graphics-bez-nazvaniya-28",
-    "category": "Графика",
+    "category": [
+      "graphics-animals"
+    ],
     "collection": "graphics",
     "series": "",
     "medium": "",

@@ -1,13 +1,22 @@
 import artworksData from '../../public/artworks/manifest.json';
+import categoriesData from '../../public/artworks/categories.json';
 
-export type ArtworkCategory = 'Живопись' | 'Графика' | 'Объекты' | string;
+export type ArtworkCategoryId = string;
+
+export type ArtworkCategory = {
+  id: ArtworkCategoryId;
+  title: string;
+  collection: 'painting' | 'graphics';
+};
 
 export type ArtworkItem = {
   id: string;
   source_id: string;
   title: string;
   slug: string;
-  category: ArtworkCategory;
+  category: ArtworkCategoryId[];
+  category_labels: string[];
+  category_label: string;
   collection: 'painting' | 'graphics';
   series: string;
   medium: string;
@@ -23,7 +32,21 @@ export type ArtworkItem = {
   format: string;
 };
 
-export const artworks = artworksData as ArtworkItem[];
+type ArtworkManifestItem = Omit<ArtworkItem, 'category_labels' | 'category_label'>;
+
+export const categories = categoriesData as ArtworkCategory[];
+
+const categoryById = new Map(categories.map((category) => [category.id, category]));
+
+export const artworks = (artworksData as ArtworkManifestItem[]).map((artwork) => {
+  const categoryLabels = artwork.category.map((categoryId) => categoryById.get(categoryId)?.title ?? categoryId);
+
+  return {
+    ...artwork,
+    category_labels: categoryLabels,
+    category_label: categoryLabels.join(', '),
+  };
+});
 
 export function getArtworkById(id: string) {
   return artworks.find((artwork) => artwork.id === id);

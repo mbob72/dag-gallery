@@ -1,0 +1,42 @@
+[
+  {
+    "id": "portrait",
+    "title": "Портрет",
+    "collection": "painting"
+  },
+  {
+    "id": "landscape",
+    "title": "Пейзаж",
+    "collection": "painting"
+  },
+  {
+    "id": "still-life",
+    "title": "Натюрморт",
+    "collection": "painting"
+  },
+  {
+    "id": "art-object",
+    "title": "Арт объект",
+    "collection": "painting"
+  },
+  {
+    "id": "graphics",
+    "title": "Графика",
+    "collection": "graphics"
+  },
+  {
+    "id": "graphics-birds",
+    "title": "Графика, птицы",
+    "collection": "graphics"
+  },
+  {
+    "id": "graphics-animals",
+    "title": "Графика, животные",
+    "collection": "graphics"
+  },
+  {
+    "id": "graphics-people",
+    "title": "Графика, люди",
+    "collection": "graphics"
+  }
+]

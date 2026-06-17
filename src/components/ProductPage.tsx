@@ -8,7 +8,7 @@ function getBreadcrumbs(artwork: ArtworkItem): BreadcrumbItem[] {
   return [
     { label: 'Главная', href: '/' },
     { label: 'Постеры', href: '#' },
-    { label: artwork.category, href: '#' },
+    { label: artwork.category_label, href: '#' },
     { label: artwork.title, href: `/poster/${artwork.id}` },
   ];
 }
@@ -19,7 +19,7 @@ function getProduct(artwork: ArtworkItem): ArtworkProduct {
     title: artwork.title,
     author,
     image: artwork.image,
-    category: artwork.category,
+    category: artwork.category_label,
     series: artwork.series,
     medium: artwork.medium,
     dimensions: artwork.dimensions,
