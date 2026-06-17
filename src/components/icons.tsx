@@ -43,6 +43,10 @@ export function CloseIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="m6 6 12 12M18 6 6 18" /></svg>;
 }
 
+export function MaximizeIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M8 3H3v5M21 8V3h-5M16 21h5v-5M3 16v5h5" /></svg>;
+}
+
 export function ChevronDownIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="m6 9 6 6 6-6" /></svg>;
 }
