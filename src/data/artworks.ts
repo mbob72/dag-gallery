@@ -48,6 +48,20 @@ export const artworks = (artworksData as ArtworkManifestItem[]).map((artwork) =>
   };
 });
 
+export const categoryGalleryItems = categories.flatMap((category) => {
+  const artwork = artworks.find((item) => item.category.includes(category.id));
+
+  if (!artwork) {
+    return [];
+  }
+
+  return {
+    title: category.title,
+    href: `/category/${category.id}`,
+    image: artwork.image,
+  };
+});
+
 export function getArtworkById(id: string) {
   return artworks.find((artwork) => artwork.id === id);
 }

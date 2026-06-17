@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
-import { catalogNav, SITE_URL } from '../data/content';
-import { CartIcon, ChevronDownIcon, CloseIcon, HeartIcon, MenuIcon, ReactLogoIcon, SearchIcon } from './icons';
+import categoriesData from '../../public/artworks/categories.json';
+import { CartIcon, CloseIcon, HeartIcon, MenuIcon, ReactLogoIcon, SearchIcon } from './icons';
 import { Container } from './Container';
 
-const absolute = (href: string) => href === '#' || href.startsWith('http') ? href : `${SITE_URL}${href}`;
+const categories = categoriesData as { id: string; title: string }[];
 
 function Badge({ children }: { children: ReactNode }) {
   return <span className="absolute -right-2 -top-2 min-w-5 rounded-full bg-accent px-1 text-center text-[11px] font-bold leading-5 text-white">{children}</span>;
@@ -46,32 +46,6 @@ export function Header() {
         </Container>
       </div>
 
-      <div className="hidden border-b border-black/10 lg:block">
-        <Container>
-          <nav className="grid grid-cols-6">
-            {catalogNav.map((item) => (
-              <div key={item.label} className="group relative">
-                <a href={absolute(item.href)} className="flex h-16 items-center justify-center border-r border-black/10 px-3 text-center text-sm font-medium leading-tight transition first:border-l hover:bg-paper">
-                  {item.label}
-                </a>
-                {item.children && (
-                  <div className="invisible absolute left-0 top-full w-[520px] translate-y-2 border border-black/10 bg-white p-7 opacity-0 shadow-soft transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="mb-4 text-lg font-bold">{item.label}</p>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                      {item.children.map((child) => (
-                        <a key={child.label} href={absolute(child.href)} className="text-sm text-black/65 hover:text-accent">
-                          {child.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-        </Container>
-      </div>
-
       <div className="flex h-16 items-center justify-between border-b border-black/10 px-4 lg:hidden">
         <button onClick={() => setMenuOpen(true)} aria-label="Открыть меню" className="p-2">
           <MenuIcon className="size-7" />
@@ -88,25 +62,23 @@ export function Header() {
       {menuOpen && (
         <div className="fixed inset-0 z-[100] lg:hidden">
           <button className="absolute inset-0 bg-black/45" onClick={() => setMenuOpen(false)} aria-label="Закрыть меню" />
-          <aside className="relative h-full w-[88%] max-w-sm overflow-y-auto bg-white p-5 shadow-2xl">
+          <aside className="absolute left-0 top-0 h-full w-[88%] max-w-sm overflow-y-auto bg-white p-5 shadow-2xl">
             <div className="mb-6 flex items-center justify-between">
-              <strong className="text-lg">Каталог</strong>
+              <strong className="text-lg">Категории</strong>
               <button onClick={() => setMenuOpen(false)} aria-label="Закрыть"><CloseIcon className="size-7" /></button>
             </div>
-            <div className="space-y-1">
-              {catalogNav.map((item) => (
-                <div key={item.label} className="border-b border-black/10 py-2">
-                  <a href={absolute(item.href)} className="block py-2 font-medium">{item.label}</a>
-                  {item.children && (
-                    <div className="pb-2 pl-3">
-                      {item.children.slice(0, 4).map((child) => (
-                        <a key={child.label} href={absolute(child.href)} className="block py-1.5 text-sm text-black/60">{child.label}</a>
-                      ))}
-                    </div>
-                  )}
-                </div>
+            <nav className="space-y-1">
+              {categories.map((category) => (
+                <a
+                  key={category.id}
+                  href={`/category/${category.id}`}
+                  className="block border-b border-black/10 py-3 text-base font-medium text-ink transition hover:text-accent"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {category.title}
+                </a>
               ))}
-            </div>
+            </nav>
           </aside>
         </div>
       )}

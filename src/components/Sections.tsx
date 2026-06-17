@@ -1,4 +1,5 @@
-import { benefits, classicArt, features, footerColumns, heroSlides, modernArt, popularCategories, SITE_URL, type ImageLink } from '../data/content';
+import { benefits, features, footerColumns, heroSlides, popularCategories, SITE_URL, type ImageLink } from '../data/content';
+import { categoryGalleryItems } from '../data/artworks';
 import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
 
@@ -100,8 +101,8 @@ export function FeatureSections() {
 
 function MosaicCard({ item, featured = false }: { item: ImageLink; featured?: boolean }) {
   return (
-    <a href={url(item.href)} className={`group relative isolate min-h-[240px] overflow-hidden bg-zinc-200 ${featured ? 'sm:row-span-2 sm:min-h-[500px]' : ''}`}>
-      <img src={url(item.image)} alt={item.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+    <a href={item.href} className={`group relative isolate min-h-[240px] overflow-hidden bg-zinc-200 ${featured ? 'sm:row-span-2 sm:min-h-[500px]' : ''}`}>
+      <img src={item.image} alt={item.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white sm:p-6">
         <h3 className="text-xl font-medium sm:text-2xl">{item.title}</h3>
@@ -128,7 +129,7 @@ export function ArtMosaic({ title, items }: { title: string; items: ImageLink[] 
 
 export function CatalogMosaics() {
   return (
-    <div className="bg-paper"><ArtMosaic title="Художник ..." items={modernArt} /></div>
+    <div className="bg-paper"><ArtMosaic title="Художник Наталья Савельева" items={categoryGalleryItems} /></div>
   );
 }
 
