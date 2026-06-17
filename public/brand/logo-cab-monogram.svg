@@ -1,0 +1,10 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Caspian Art Bureau logo concept: CAB monogram</title>
+  <desc id="desc">A geometric CAB monogram where the A reads as an easel and the B as two gallery panels.</desc>
+  <path d="M91 63H63C49 63 38 74 38 88V152C38 166 49 177 63 177H91" stroke="#242424" stroke-width="12" stroke-linecap="square"/>
+  <path d="M112 177L136 63L160 177" stroke="#242424" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M123 137H149" stroke="#E66A2C" stroke-width="12" stroke-linecap="square"/>
+  <path d="M177 63H199C213 63 222 73 222 88C222 103 213 113 199 113H177V63Z" stroke="#242424" stroke-width="12" stroke-linejoin="miter"/>
+  <path d="M177 127H202C216 127 225 137 225 152C225 167 216 177 202 177H177V127Z" stroke="#242424" stroke-width="12" stroke-linejoin="miter"/>
+  <path d="M177 63V177" stroke="#242424" stroke-width="12" stroke-linecap="square"/>
+</svg>

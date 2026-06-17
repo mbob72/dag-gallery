@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logo concepts</title>
+    <style>
+      :root {
+        --ink: #242424;
+        --paper: #efe7da;
+        --accent: #e66a2c;
+      }
+
+      body {
+        margin: 0;
+        background: #f7f5f1;
+        color: var(--ink);
+        font-family: Roboto, Arial, sans-serif;
+      }
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      h1 {
+        margin: 0 0 24px;
+        font-size: 32px;
+        font-weight: 300;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid rgb(36 36 36 / 0.12);
+        padding: 24px;
+      }
+
+      .logo {
+        display: grid;
+        place-items: center;
+        min-height: 280px;
+        background: var(--paper);
+      }
+
+      img {
+        width: 180px;
+        height: 180px;
+      }
+
+      h2 {
+        margin: 18px 0 8px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      p {
+        margin: 0;
+        color: rgb(36 36 36 / 0.6);
+        line-height: 1.5;
+      }
+
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgb(36 36 36 / 0.1);
+      }
+
+      .lockup img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+
+      .artist {
+        margin-top: 4px;
+        color: rgb(36 36 36 / 0.55);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Caspian Art Bureau: logo concepts</h1>
+      <div class="grid">
+        <section class="card">
+          <div class="logo">
+            <img src="/brand/logo-frame-wave.svg" alt="Frame and wave logo concept" />
+          </div>
+          <h2>01. Рама и волна</h2>
+          <p>Галерейная рамка, каспийская волна и вертикаль мольберта. Самый спокойный и универсальный знак.</p>
+          <div class="lockup">
+            <img src="/brand/logo-frame-wave.svg" alt="" />
+            <div>
+              <div class="brand">Caspian Art Bureau</div>
+              <div class="artist">Наталья Савельева</div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="logo">
+            <img src="/brand/logo-cab-monogram.svg" alt="CAB monogram logo concept" />
+          </div>
+          <h2>02. Монограмма CAB</h2>
+          <p>Более брендовый знак: C как открытый контур, A как мольберт, B как две галерейные панели.</p>
+          <div class="lockup">
+            <img src="/brand/logo-cab-monogram.svg" alt="" />
+            <div>
+              <div class="brand">Caspian Art Bureau</div>
+              <div class="artist">Наталья Савельева</div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="logo">
+            <img src="/brand/logo-frame-brush.svg" alt="Frame and brush logo concept" />
+          </div>
+          <h2>03. Рама и кисть</h2>
+          <p>Та же галерейная рамка, но вертикаль заменена на кисть. Больше прямого указания на живопись.</p>
+          <div class="lockup">
+            <img src="/brand/logo-frame-brush.svg" alt="" />
+            <div>
+              <div class="brand">Caspian Art Bureau</div>
+              <div class="artist">Наталья Савельева</div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="logo">
+            <img src="/brand/logo-cab-brush.svg" alt="CAB brush monogram logo concept" />
+          </div>
+          <h2>04. Л и кисть</h2>
+          <p>Простой знак на основе формы Л и крупной художественной кисти, поднятой чуть по диагонали.</p>
+          <div class="lockup">
+            <img src="/brand/logo-cab-brush.svg" alt="" />
+            <div>
+              <div class="brand">Caspian Art Bureau</div>
+              <div class="artist">Наталья Савельева</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

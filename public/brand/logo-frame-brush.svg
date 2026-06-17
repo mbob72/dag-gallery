@@ -1,0 +1,10 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Caspian Art Bureau logo concept: frame and brush</title>
+  <desc id="desc">A minimal gallery frame with a wave and a brush mark.</desc>
+  <rect width="240" height="240" fill="#EFE7DA"/>
+  <rect x="42" y="42" width="156" height="156" stroke="#242424" stroke-width="12"/>
+  <path d="M61 136C82 111 104 111 124 136C144 161 167 161 188 136" stroke="#242424" stroke-width="12" stroke-linecap="square"/>
+  <path d="M126 66L126 150" stroke="#E66A2C" stroke-width="10" stroke-linecap="square"/>
+  <path d="M111 150H141L134 174H118L111 150Z" fill="#E66A2C"/>
+  <path d="M119 66H133L130 48H122L119 66Z" fill="#242424"/>
+</svg>

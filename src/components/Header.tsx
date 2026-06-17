@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import categoriesData from '../../public/artworks/categories.json';
-import { CartIcon, CloseIcon, HeartIcon, MenuIcon, ReactLogoIcon, SearchIcon } from './icons';
+import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon } from './icons';
 import { Container } from './Container';
 
 const categories = categoriesData as { id: string; title: string }[];
@@ -17,8 +17,8 @@ export function Header() {
   return (
     <header className="relative z-50 bg-white text-ink">
       <Container className="hidden h-24 items-center justify-between gap-8 lg:flex">
-        <a href="/" className="inline-flex shrink-0 items-center gap-3 text-sky-500" aria-label="На главную">
-          <ReactLogoIcon className="size-14" />
+        <a href="/" className="inline-flex shrink-0 items-center gap-3" aria-label="На главную">
+          <img src="/brand/logo-cab-monogram.svg" alt="" className="size-28" />
           <span className="sr-only">Caspian Art Bureau</span>
         </a>
         <a href="tel:+78000000000" className="ml-auto block text-lg font-bold tracking-wide">8 800 000 00 00</a>
@@ -50,8 +50,8 @@ export function Header() {
         <button onClick={() => setMenuOpen(true)} aria-label="Открыть меню" className="p-2">
           <MenuIcon className="size-7" />
         </button>
-        <a href="/" className="text-sky-500" aria-label="На главную">
-          <ReactLogoIcon className="size-10" />
+        <a href="/" aria-label="На главную">
+          <img src="/brand/logo-cab-monogram.svg" alt="" className="size-20" />
         </a>
         <div className="flex items-center gap-3">
           <button aria-label="Поиск"><SearchIcon className="size-6" /></button>
