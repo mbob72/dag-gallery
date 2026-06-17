@@ -1,0 +1,20 @@
+[
+  {
+    "id": "painting",
+    "title": "Живопись",
+    "description": "Портреты, пейзажи и натюрморты Натальи Савельевой",
+    "category": ["portrait", "landscape", "still-life"]
+  },
+  {
+    "id": "graphics",
+    "title": "Графика",
+    "description": "Графические листы, птицы, животные и люди",
+    "category": ["graphics", "graphics-birds", "graphics-animals", "graphics-people"]
+  },
+  {
+    "id": "art-objects",
+    "title": "Арт объекты",
+    "description": "Авторские арт-объекты",
+    "category": ["art-object"]
+  }
+]

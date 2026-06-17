@@ -1,22 +1,22 @@
 [
   {
     "id": "portrait",
-    "title": "Портрет",
+    "title": "Портреты",
     "collection": "painting"
   },
   {
     "id": "landscape",
-    "title": "Пейзаж",
+    "title": "Пейзажи",
     "collection": "painting"
   },
   {
     "id": "still-life",
-    "title": "Натюрморт",
+    "title": "Натюрморты",
     "collection": "painting"
   },
   {
     "id": "art-object",
-    "title": "Арт объект",
+    "title": "Арт объекты",
     "collection": "painting"
   },
   {

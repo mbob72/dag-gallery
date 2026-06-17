@@ -8,6 +8,7 @@ const publicRoot = 'public/artworks';
 const painting = JSON.parse(readFileSync('images/painting/manifest.json', 'utf8'));
 const graphics = JSON.parse(readFileSync('images/graphics/manifest.json', 'utf8'));
 const categories = JSON.parse(readFileSync('images/categories.json', 'utf8'));
+const supercategories = JSON.parse(readFileSync('images/supercategories.json', 'utf8'));
 const categoryIds = new Set(categories.map((category) => category.id));
 
 const translitMap = new Map(Object.entries({
@@ -141,6 +142,10 @@ for (const item of graphics) {
 }
 
 const artworks = [...painting.map(normalizePainting), ...graphics.map(normalizeGraphics)];
+for (const supercategory of supercategories) {
+  normalizeCategory(supercategory.category);
+}
+
 const columns = [
   'id',
   'source_id',
@@ -164,6 +169,7 @@ const columns = [
 
 writeFileSync(join(publicRoot, 'manifest.json'), `${JSON.stringify(artworks, null, 2)}\n`);
 writeFileSync(join(publicRoot, 'categories.json'), `${JSON.stringify(categories, null, 2)}\n`);
+writeFileSync(join(publicRoot, 'supercategories.json'), `${JSON.stringify(supercategories, null, 2)}\n`);
 writeFileSync(
   join(publicRoot, 'manifest.csv'),
   `${columns.join(',')}\n${artworks.map((item) => columns.map((column) => csvValue(item[column])).join(',')).join('\n')}\n`,

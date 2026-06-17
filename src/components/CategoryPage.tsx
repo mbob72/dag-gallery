@@ -18,7 +18,6 @@ export function CategoryPage({ category, artworks }: { category: ArtworkCategory
         <Container>
           <div className="mb-7 flex flex-col gap-2 sm:mb-9 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-accent">Категория</p>
               <h1 className="text-3xl font-light leading-tight text-ink sm:text-5xl">{category.title}</h1>
             </div>
             <p className="text-sm text-black/50">{artworks.length} работ</p>

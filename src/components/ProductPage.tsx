@@ -2,8 +2,6 @@ import { ProductArtwork, type ArtworkProduct } from './ProductArtwork';
 import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
 import type { ArtworkItem } from '../data/artworks';
 
-const author = 'Caspian Art Bureau';
-
 function getBreadcrumbs(artwork: ArtworkItem): BreadcrumbItem[] {
   return [
     { label: 'Главная', href: '/' },
@@ -17,7 +15,7 @@ function getProduct(artwork: ArtworkItem): ArtworkProduct {
   return {
     article: artwork.source_id,
     title: artwork.title,
-    author,
+    author: artwork.artist,
     image: artwork.image,
     category: artwork.category_label,
     series: artwork.series,

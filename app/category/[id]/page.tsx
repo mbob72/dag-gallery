@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${category.title} | Наталья Савельева`,
+    title: `${category.title} | Caspian Art Bureau`,
     description: `Работы Натальи Савельевой в категории ${category.title}`,
   };
 }
