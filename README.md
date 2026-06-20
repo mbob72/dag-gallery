@@ -9,6 +9,20 @@ npm install
 npm run dev
 ```
 
+## Отправка запросов из корзины
+
+Кнопка «Послать запрос» отправляет данные на серверный обработчик `/api/order-request`, а сервер отправляет письмо через Resend.
+
+Создайте `.env.local` по примеру `.env.example`:
+
+```bash
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ORDER_REQUEST_FROM="Art Gallery <orders@example.com>"
+```
+
+`ORDER_REQUEST_FROM` должен быть адресом с домена, подтвержденного в Resend.
+Письма с запросами отправляются на `ptichkasinichka@ya.ru` и `mbob72@gmail.com`.
+
 ## Структура
 
 - `src/components/Header.tsx` — desktop/mobile header, поиск, каталог и dropdown-меню.

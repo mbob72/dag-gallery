@@ -82,7 +82,7 @@ export function OrderPage() {
                 items={cartItems}
                 onRemove={removeFromCart}
               />
-              <OrderSummary itemCount={itemCount} totalRub={totalRub} onRequestSent={clearCart} />
+              <OrderSummary itemCount={itemCount} items={validEntries} totalRub={totalRub} onRequestSent={clearCart} />
             </div>
           </Container>
         </section>
