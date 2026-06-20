@@ -17,6 +17,9 @@ build/
 .env.*
 !.env.example
 
+# Local browser profiles / authenticated sessions
+.playwright-profiles/timeweb/
+
 # Logs
 logs/
 *.log
