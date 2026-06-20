@@ -15,6 +15,7 @@ type ContactDetails = {
 
 const artworkById = new Map(artworks.map((artwork) => [artwork.id, artwork]));
 const orderRequestRecipients = ['ptichkasinichka@ya.ru', 'mbob72@gmail.com'];
+const orderRequestOrigin = 'https://kavkazart.ru';
 
 function trimString(value: unknown) {
   return typeof value === 'string' ? value.trim() : '';
@@ -191,8 +192,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Отправка писем не настроена на сервере.' }, { status: 500 });
   }
 
-  const origin = new URL(request.url).origin;
-  const email = buildEmail({ contact, items: requestedArtworks, origin });
+  const email = buildEmail({ contact, items: requestedArtworks, origin: orderRequestOrigin });
 
   try {
     await sendEmail({
