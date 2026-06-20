@@ -5,21 +5,38 @@ export type OrderCartItem = {
   href?: string;
   badge?: string;
   attributes: string[];
-  quantity?: number;
   price: string;
-  totalText?: string;
-  actions?: string[];
 };
 
 function Price({ value }: { value: string }) {
-  return value.toLowerCase() === 'бесплатно' ? (
-    <span className="text-sm font-bold uppercase text-accent">{value}</span>
-  ) : (
-    <span className="text-xl font-medium text-ink">{value} ₽</span>
-  );
+  if (value.toLowerCase() === 'бесплатно') {
+    return (
+      <span className="text-sm font-bold uppercase text-accent">{value}</span>
+    );
+  }
+
+  if (value.toLowerCase() === 'по запросу') {
+    return <span className="text-sm font-medium text-ink">{value}</span>;
+  }
+
+  return <span className="text-xl font-medium text-ink">{value} ₽</span>;
 }
 
-export function OrderCartItems({ items }: { items: OrderCartItem[] }) {
+export function OrderCartItems({
+  items,
+  onRemove,
+}: {
+  items: OrderCartItem[];
+  onRemove?: (id: string) => void;
+}) {
+  if (items.length === 0) {
+    return (
+      <div className="border border-black/10 bg-white p-8 text-sm text-black/60">
+        В корзине пока нет работ.
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-4">
       {items.map((item) => {
@@ -51,25 +68,19 @@ export function OrderCartItems({ items }: { items: OrderCartItem[] }) {
             </div>
 
             <div className="flex flex-col gap-3 sm:items-end sm:text-right">
-              {item.quantity && (
-                <input
-                  type="text"
-                  defaultValue={item.quantity}
-                  aria-label="Количество"
-                  className="h-10 w-16 border border-black/15 text-center text-sm outline-none focus:border-accent"
-                />
-              )}
               <Price value={item.price} />
-              {item.totalText && <em className="text-xs not-italic text-black/45">{item.totalText} ₽</em>}
-              {item.actions && (
-                <div className="mt-auto space-y-1 text-sm">
-                  {item.actions.map((action) => (
-                    <button key={action} type="button" className="block text-left text-black/45 transition hover:text-accent sm:text-right">
-                      {action}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <div className="mt-auto space-y-1 text-sm">
+                <button type="button" className="block text-left text-black/45 transition hover:text-accent sm:text-right">
+                  отложить в избранное
+                </button>
+                <button
+                  type="button"
+                  className="block text-left text-black/45 transition hover:text-accent sm:text-right"
+                  onClick={() => onRemove?.(item.id)}
+                >
+                  Удалить
+                </button>
+              </div>
             </div>
           </article>
         );

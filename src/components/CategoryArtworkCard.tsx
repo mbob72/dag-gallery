@@ -1,5 +1,6 @@
 import type { ArtworkItem } from '../data/artworks';
 import { HeartIcon } from './icons';
+import { AddToCartButton } from './AddToCartButton';
 
 const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 
@@ -11,27 +12,24 @@ function dimensionsText(artwork: ArtworkItem) {
   return `${artwork.width_px}x${artwork.height_px} px`;
 }
 
-export function CategoryArtworkCard({ artwork, priority = false }: { artwork: ArtworkItem; priority?: boolean }) {
+export function CategoryArtworkCard({ artwork }: { artwork: ArtworkItem }) {
   const price = artwork.price_rub ? `от ${formatPrice(artwork.price_rub)} ₽` : 'по запросу';
 
   return (
     <article className="group bg-white">
       <div className="relative border border-black/10 bg-white transition group-hover:border-black/20 group-hover:shadow-soft">
-        <a href={`/poster/${artwork.id}`} className="block bg-[#f7f7f4] p-4">
-          <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-white">
-            {priority && (
-              <div className="absolute left-3 top-3 z-10 bg-accent px-2.5 py-1 text-xs font-bold text-white">
-                Хит
-              </div>
-            )}
-            <img
-              src={artwork.image}
-              alt={artwork.title}
-              loading={priority ? 'eager' : 'lazy'}
-              className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]"
-            />
-          </div>
-        </a>
+        <div className="bg-[#f7f7f4] p-4">
+          <a href={`/poster/${artwork.id}`} className="block">
+            <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-white">
+              <img
+                src={artwork.image}
+                alt={artwork.title}
+                loading="lazy"
+                className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+          </a>
+        </div>
 
         <button
           type="button"
@@ -63,12 +61,18 @@ export function CategoryArtworkCard({ artwork, priority = false }: { artwork: Ar
             </div>
           </dl>
 
-          <a
-            href={`/poster/${artwork.id}`}
-            className="mt-4 inline-flex w-full items-center justify-center bg-accent px-4 py-3 text-sm font-bold text-white transition hover:bg-ink"
-          >
-            Подробнее
-          </a>
+          <div className="mt-4 flex items-center gap-3">
+            <a
+              href={`/poster/${artwork.id}`}
+              className="inline-flex min-w-0 flex-1 items-center justify-center bg-accent px-4 py-3 text-sm font-bold text-white transition hover:bg-ink"
+            >
+              Подробнее
+            </a>
+            <AddToCartButton
+              artworkId={artwork.id}
+              className="grid size-11 shrink-0 place-items-center border border-black/15 bg-white text-ink transition hover:border-accent hover:bg-accent hover:text-white"
+            />
+          </div>
         </div>
       </div>
     </article>

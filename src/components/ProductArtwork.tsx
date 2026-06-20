@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import { CloseIcon, HeartIcon, MaximizeIcon } from './icons';
 import { Container } from './Container';
+import { AddToCartButton } from './AddToCartButton';
 
 export type ArtworkProduct = {
+  id: string;
   article: string;
   title: string;
   author: string;
@@ -91,7 +93,7 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
     <section className="bg-white py-8 sm:py-12">
       <Container>
         <div className="grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
-          <aside className="lg:sticky lg:top-6">
+          <aside className="grid gap-3 lg:sticky lg:top-6">
             <button
               type="button"
               className="flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-4 text-sm font-medium text-ink transition hover:border-accent hover:text-accent lg:justify-start"
@@ -102,6 +104,11 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
                 <span className="ml-auto hidden text-black/35 lg:inline">{product.favoriteCount}</span>
               )}
             </button>
+            <AddToCartButton
+              artworkId={product.id}
+              className="flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-4 text-sm font-medium text-ink transition hover:border-accent hover:text-accent lg:justify-start"
+              showAddedText
+            />
           </aside>
 
           <article>

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import categoriesData from '../../public/artworks/categories.json';
+import { cartChangeEventName, getCartCount, readCart } from '../data/cart';
 import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon } from './icons';
 import { Container } from './Container';
 
@@ -13,6 +14,20 @@ function Badge({ children }: { children: ReactNode }) {
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const syncCartCount = () => setCartCount(getCartCount(readCart()));
+
+    syncCartCount();
+    window.addEventListener(cartChangeEventName, syncCartCount);
+    window.addEventListener('storage', syncCartCount);
+
+    return () => {
+      window.removeEventListener(cartChangeEventName, syncCartCount);
+      window.removeEventListener('storage', syncCartCount);
+    };
+  }, []);
 
   return (
     <header className="relative z-50 shrink-0 bg-white text-ink">
@@ -41,7 +56,7 @@ export function Header() {
             <HeartIcon className="size-6" /> Избранное <Badge>0</Badge>
           </a>
           <a href="/order" className="relative flex items-center gap-2 px-2 text-sm font-medium">
-            <CartIcon className="size-6" /> Корзина <Badge>0</Badge>
+            <CartIcon className="size-6" /> Корзина <Badge>{cartCount}</Badge>
           </a>
         </Container>
       </div>
@@ -55,7 +70,7 @@ export function Header() {
         </a>
         <div className="flex items-center gap-3">
           <button aria-label="Поиск"><SearchIcon className="size-6" /></button>
-          <a href="/order" className="relative"><CartIcon className="size-6" /><Badge>0</Badge></a>
+          <a href="/order" className="relative"><CartIcon className="size-6" /><Badge>{cartCount}</Badge></a>
         </div>
       </div>
 

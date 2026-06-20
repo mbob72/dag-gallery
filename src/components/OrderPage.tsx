@@ -1,45 +1,75 @@
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
 import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
 import { OrderCartItems, type OrderCartItem } from './OrderCartItems';
 import { OrderSummary } from './OrderSummary';
 import { Container } from './Container';
 import { Footer } from './Sections';
+import { artworks } from '../data/artworks';
+import { cartChangeEventName, clearCart, readCart, removeFromCart, writeCart, type CartEntry } from '../data/cart';
 
 const breadcrumbs: BreadcrumbItem[] = [
   { label: 'Главная', href: '/' },
   { label: 'Корзина', href: '/order' },
 ];
 
-const cartItems: OrderCartItem[] = [
-  {
-    id: '542096',
-    title: 'Танец цветов',
-    image: '/userdata/poster/image3d/d8/7d/d87d8268a63a1660a67f57474f9c5488.jpg?1781639396',
-    href: '/poster/bezhevo-seraya-abstrakciya-627054?poster_id=3494461',
-    attributes: ['Артикул: F133799', '38.9x50 см', 'Исполнение: На холсте без рамы', 'Материал печати: Холст'],
-    quantity: 1,
-    price: '3 315',
-    totalText: '= 1 x 3 315',
-    actions: ['отложить в избранное', 'Удалить'],
-  },
-  {
-    id: 'bonus',
-    title: '198 бонусных баллов',
-    image: '/userdata/bonus_point/45/44/454456e26be2bbff4ab1ebf3cd1f30d3.jpg',
-    badge: '/images/cart_present_2.png',
-    attributes: ['Баллы будут доступны при следующем заказе'],
-    price: 'Бесплатно',
-  },
-  {
-    id: 'client-card',
-    title: 'Карта постоянного клиента',
-    image: '/images/client_cards/7.jpg',
-    badge: '/images/cart_crown.png',
-    attributes: ['Виртуальная карта придет вам на почту вместе с заказом'],
-    price: 'Бесплатно',
-  },
-];
+const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
+const artworkById = new Map(artworks.map((artwork) => [artwork.id, artwork]));
+
+function dimensionsText(widthPx: number, heightPx: number, dimensions?: string) {
+  return dimensions || `${widthPx}x${heightPx} px`;
+}
 
 export function OrderPage() {
+  const [cartEntries, setCartEntries] = useState<CartEntry[]>([]);
+
+  useEffect(() => {
+    const syncCart = () => setCartEntries(readCart());
+
+    syncCart();
+    window.addEventListener(cartChangeEventName, syncCart);
+    window.addEventListener('storage', syncCart);
+
+    return () => {
+      window.removeEventListener(cartChangeEventName, syncCart);
+      window.removeEventListener('storage', syncCart);
+    };
+  }, []);
+
+  const validEntries = useMemo(() => cartEntries.filter((entry) => artworkById.has(entry.id)), [cartEntries]);
+  const cartItems: OrderCartItem[] = useMemo(() => validEntries.map((entry) => {
+    const artwork = artworkById.get(entry.id)!;
+
+    const unitPrice = artwork.price_rub;
+    const attributes = [
+      `Артикул: ${artwork.source_id}`,
+      dimensionsText(artwork.width_px, artwork.height_px, artwork.dimensions),
+      artwork.medium && `Материал: ${artwork.medium}`,
+      artwork.category_label && `Категория: ${artwork.category_label}`,
+    ].filter(Boolean) as string[];
+
+    return {
+      id: artwork.id,
+      title: artwork.title,
+      image: artwork.image,
+      href: `/poster/${artwork.id}`,
+      attributes,
+      price: unitPrice ? formatPrice(unitPrice) : 'по запросу',
+    };
+  }), [validEntries]);
+  const totalRub = validEntries.reduce((sum, entry) => {
+    const artwork = artworkById.get(entry.id);
+    return sum + (artwork?.price_rub ?? 0);
+  }, 0);
+  const itemCount = validEntries.length;
+
+  useEffect(() => {
+    if (cartEntries.length !== validEntries.length) {
+      writeCart(validEntries);
+    }
+  }, [cartEntries, validEntries]);
+
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <ProductBreadcrumbs items={breadcrumbs} />
@@ -48,8 +78,11 @@ export function OrderPage() {
           <Container>
             <h1 className="mb-7 text-3xl font-light leading-tight text-ink sm:text-5xl">Корзина</h1>
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-              <OrderCartItems items={cartItems} />
-              <OrderSummary />
+              <OrderCartItems
+                items={cartItems}
+                onRemove={removeFromCart}
+              />
+              <OrderSummary itemCount={itemCount} totalRub={totalRub} onRequestSent={clearCart} />
             </div>
           </Container>
         </section>

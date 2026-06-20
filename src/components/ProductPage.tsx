@@ -14,6 +14,7 @@ function getBreadcrumbs(artwork: ArtworkItem): BreadcrumbItem[] {
 
 function getProduct(artwork: ArtworkItem): ArtworkProduct {
   return {
+    id: artwork.id,
     article: artwork.source_id,
     title: artwork.title,
     author: artwork.artist,

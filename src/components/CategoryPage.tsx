@@ -27,8 +27,8 @@ export function CategoryPage({ category, artworks }: { category: ArtworkCategory
 
             {artworks.length > 0 ? (
               <div id="catalog_posters" className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-                {artworks.map((artwork, index) => (
-                  <CategoryArtworkCard key={artwork.id} artwork={artwork} priority={index < 4} />
+                {artworks.map((artwork) => (
+                  <CategoryArtworkCard key={artwork.id} artwork={artwork} />
                 ))}
               </div>
             ) : (
