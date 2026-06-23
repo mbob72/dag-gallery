@@ -64,17 +64,17 @@ export const heroSlides = [
   {
     image: '/userdata/homepage/slider/resized/3e/09/3e091e3a5623ec44a59c7c95fd6c5d63_1200_webp.webp?v1449',
     title: 'Caspian Art Bureau',
-    subtitle: 'Современное и коллекционное искусство Дагестана',
+    subtitle: 'Современное и традиционное искусство Кавказа',
   },
   {
     image: '/userdata/homepage/slider/resized/c5/f4/c5f4b1222390ed071cb8a4c795d688d7_1200_webp.webp?v1449',
     title: 'Caspian Art Bureau',
-    subtitle: 'Современное и коллекционное искусство Дагестана',
+    subtitle: 'Современное и традиционное искусство Кавказа',
   },
   {
     image: '/userdata/homepage/slider/resized/2c/13/2c13634c3906f51da78881cc0e564ddf_1200_webp.webp?v1449',
     title: 'Caspian Art Bureau',
-    subtitle: 'Современное и коллекционное искусство Дагестана',
+    subtitle: 'Современное и традиционное искусство Кавказа',
   },
 ];
 
@@ -164,6 +164,6 @@ export const footerColumns = [
   },
   {
     title: 'Контакты',
-    links: ['Махачкала', '8 800 000 00 00', 'info@example.com', 'Telegram', 'Instagram'],
+    links: ['Махачкала', '8 800 000 00 00', 'info@example.com', 'Telegram'],
   },
 ];

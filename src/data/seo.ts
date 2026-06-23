@@ -41,18 +41,18 @@ const SITE_NAME = 'Caspian Art Bureau';
 const siteScope: SeoScope = {
   id: 'site',
   route: '/',
-  title: 'Caspian Art Bureau - современное и коллекционное искусство Дагестана',
+  title: 'Caspian Art Bureau - современное и традиционное искусство Кавказа',
   description:
     'Авторская живопись, графика и арт-объекты Натальи Савельевой: картины для интерьера, коллекции и частных собраний.',
   h1: 'Caspian Art Bureau',
-  tags: ['современное искусство', 'коллекционное искусство', 'искусство Дагестана', 'Наталья Савельева'],
+  tags: ['современное искусство', 'традиционное искусство', 'искусство Кавказа', 'Наталья Савельева'],
   queries: [
     { phrase: 'картины купить', intent: 'buy', source: 'wordstat-seed', priority: 1 },
     { phrase: 'купить картину художника', intent: 'buy', source: 'wordstat-seed', priority: 1 },
     { phrase: 'картины для интерьера', intent: 'buy', source: 'wordstat-seed', priority: 1 },
     { phrase: 'современное искусство купить', intent: 'buy', source: 'wordstat-seed', priority: 2 },
     { phrase: 'авторская живопись', intent: 'browse', source: 'wordstat-seed', priority: 2 },
-    { phrase: 'коллекционное искусство', intent: 'browse', source: 'site-taxonomy', priority: 2 },
+    { phrase: 'традиционное искусство Кавказа', intent: 'browse', source: 'site-taxonomy', priority: 2 },
     { phrase: 'художники Дагестана', intent: 'local', source: 'site-taxonomy', priority: 2 },
     { phrase: 'искусство Дагестана', intent: 'local', source: 'site-taxonomy', priority: 2 },
   ],

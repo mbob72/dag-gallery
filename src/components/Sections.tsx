@@ -161,7 +161,7 @@ export function Footer() {
         <div className="grid gap-10 border-b border-white/15 pb-12 md:grid-cols-[1.25fr_2fr]">
           <div>
             <h2 className="text-2xl font-light">Caspian Art Bureau</h2>
-            <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">Современное и коллекционное искусство Дагестана. Информация о галерее, художниках и работах появится позже.</p>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">Современное и традиционное искусство Кавказа. Информация о галерее, художниках и работах появится позже.</p>
             <a href="tel:+78000000000" className="mt-6 block text-2xl font-light">8 800 000 00 00</a>
             <a href="mailto:info@example.com" className="mt-2 block text-sm text-white/60 hover:text-white">info@example.com</a>
           </div>
