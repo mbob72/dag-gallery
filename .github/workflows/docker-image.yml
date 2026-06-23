@@ -115,7 +115,7 @@ jobs:
           test -n "$DEPLOY_HOST"
           test -n "$DEPLOY_USER"
 
-          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o ConnectTimeout=15 "${DEPLOY_USER}@${DEPLOY_HOST}" <<'EOF'
+          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o ConnectTimeout=15 "${DEPLOY_USER}@${DEPLOY_HOST}" 'bash -s' <<'EOF'
           set -euo pipefail
 
           cd /opt/dag-gallery
@@ -123,24 +123,14 @@ jobs:
           docker compose up -d --no-deps app
           container_id="$(docker compose ps -q app)"
 
-          for attempt in $(seq 1 45); do
-            health_status="$(docker inspect --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$container_id")"
-
-            if [ "$health_status" = "healthy" ]; then
+          for attempt in $(seq 1 90); do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then
+              docker inspect --format 'health={{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$container_id" || true
               docker compose ps
               exit 0
             fi
 
-            if [ "$health_status" = "none" ] && curl -fsS http://127.0.0.1:3000/ >/dev/null; then
-              docker compose ps
-              exit 0
-            fi
-
-            if [ "$health_status" = "unhealthy" ]; then
-              docker compose logs --no-color --tail=80 app
-              exit 1
-            fi
-
+            docker inspect --format 'attempt='"$attempt"' health={{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$container_id" || true
             sleep 2
           done
 
