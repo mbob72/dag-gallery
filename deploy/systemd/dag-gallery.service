@@ -1,0 +1,16 @@
+[Unit]
+Description=Dag Gallery Docker Compose stack
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/dag-gallery
+RemainAfterExit=yes
+ExecStart=/usr/bin/docker compose -f docker-compose.yml -f docker-compose.edge.yml up -d --pull never app nginx
+ExecStop=/usr/bin/docker compose -f docker-compose.yml -f docker-compose.edge.yml stop nginx app
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
