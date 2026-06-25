@@ -3,7 +3,7 @@ import { ArtistMenu, CatalogMosaics, Footer } from './Sections';
 
 export function HomePage() {
   return (
-    <div className="min-h-0 flex-1 overflow-y-auto">
+    <div className="min-h-0 flex-1 overflow-y-auto scroll-smooth">
       <ArtistMenu />
       <Hero />
       {/* <HomeIntro /> */}

@@ -115,7 +115,7 @@ function MosaicCard({ item, featured = false }: { item: ImageLink; featured?: bo
 
 export function ArtMosaic({ title, items }: { title: string; items: ImageLink[] }) {
   return (
-    <section id="artist-savelyeva" className="scroll-mt-8 py-14 sm:scroll-mt-10 sm:py-20">
+    <section id="artist-savelyeva" className="scroll-mt-16 pb-14 pt-5 sm:pb-20 sm:pt-6">
       <Container>
         <SectionHeading title={title} />
         <div className="grid auto-rows-fr gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -130,9 +130,9 @@ export function ArtMosaic({ title, items }: { title: string; items: ImageLink[] 
 
 export function ArtistMenu() {
   return (
-    <nav className="border-b border-black/10 bg-white" aria-label="Художники">
+    <nav className="sticky top-0 z-40 border-b border-black/10 bg-white" aria-label="Художники">
       <Container>
-        <div className="flex gap-2 overflow-x-auto py-3">
+        <div className="flex h-16 items-center gap-2 overflow-x-auto">
           <a href="#artist-savelyeva" className="shrink-0 border border-black/15 px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">
             Савельева
           </a>
@@ -147,7 +147,7 @@ export function ArtistMenu() {
 
 export function MagomedMallakaevSection() {
   return (
-    <section id="artist-mallakaev" className="scroll-mt-8 bg-white py-14 sm:scroll-mt-10 sm:py-20">
+    <section id="artist-mallakaev" className="scroll-mt-16 bg-white pb-14 pt-5 sm:pb-20 sm:pt-6">
       <Container>
         <SectionHeading title="Художник Магомед Маллакаев (Маг Хазар)" />
         <div className="max-w-sm overflow-hidden bg-zinc-100">
