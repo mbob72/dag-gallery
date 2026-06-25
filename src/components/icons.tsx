@@ -22,6 +22,14 @@ export function CartIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M3 3h2l2.4 11.3a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /></svg>;
 }
 
+export function TelegramIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+      <path d="M21.6 4.1 18.4 19c-.2 1-.8 1.2-1.6.7l-4.9-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 12.5 1.4 11c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.8Z" />
+    </svg>
+  );
+}
+
 export function ReactLogoIcon(props: IconProps) {
   return (
     <svg viewBox="-11.5 -10.2 23 20.4" aria-hidden="true" {...props}>

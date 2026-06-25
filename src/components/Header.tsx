@@ -2,14 +2,36 @@
 
 import { useEffect, useState, type ReactNode } from 'react';
 import categoriesData from '../../public/artworks/categories.json';
+import { SITE_SUBTITLE, SITE_TITLE } from '../data/brand';
 import { cartChangeEventName, getCartCount, readCart } from '../data/cart';
-import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon } from './icons';
+import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, TelegramIcon } from './icons';
 import { Container } from './Container';
 
 const categories = categoriesData as { id: string; title: string }[];
+const telegramChannelUrl = 'https://t.me/kavkazartburau';
 
 function Badge({ children }: { children: ReactNode }) {
   return <span className="absolute -right-2 -top-2 min-w-5 rounded-full bg-accent px-1 text-center text-[11px] font-bold leading-5 text-white">{children}</span>;
+}
+
+function BrandLockup({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className="flex min-w-0 items-center gap-2 sm:gap-3">
+      <img
+        src="/brand/logo-kavkaz-art-bureau.png"
+        alt=""
+        className={compact ? 'size-11 shrink-0 object-contain sm:size-12' : 'size-20 shrink-0 object-contain'}
+      />
+      <span className="min-w-0 leading-none">
+        <span className={compact ? 'block truncate text-sm font-semibold tracking-wide sm:text-base' : 'block text-2xl font-semibold tracking-wide'}>
+          {SITE_TITLE}
+        </span>
+        <span className={compact ? 'mt-1 block truncate text-[10px] font-medium leading-tight text-black/55 sm:text-xs' : 'mt-2 block text-sm font-medium text-black/55'}>
+          {SITE_SUBTITLE}
+        </span>
+      </span>
+    </span>
+  );
 }
 
 export function Header() {
@@ -32,11 +54,18 @@ export function Header() {
   return (
     <header className="relative z-50 shrink-0 bg-white text-ink">
       <Container className="hidden h-24 items-center justify-between gap-8 lg:flex">
-        <a href="/" className="inline-flex shrink-0 items-center gap-3" aria-label="На главную">
-          <img src="/brand/logo-cab-monogram.svg" alt="" className="size-28" />
-          <span className="sr-only">Caspian Art Bureau</span>
+        <a href="/" className="inline-flex shrink-0 items-center" aria-label={`${SITE_TITLE} — на главную`}>
+          <BrandLockup />
         </a>
-        <a href="tel:+78000000000" className="ml-auto block text-lg font-bold tracking-wide">8 800 000 00 00</a>
+        <a
+          href={telegramChannelUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Telegram канал"
+          className="ml-auto inline-flex size-11 items-center justify-center rounded-full text-ink transition hover:bg-black/5 hover:text-[#229ED9]"
+        >
+          <TelegramIcon className="size-7" />
+        </a>
       </Container>
 
       <div className="border-y border-black/10 bg-[#f6f6f4]">
@@ -61,14 +90,14 @@ export function Header() {
         </Container>
       </div>
 
-      <div className="flex h-16 items-center justify-between border-b border-black/10 px-4 lg:hidden">
-        <button onClick={() => setMenuOpen(true)} aria-label="Открыть меню" className="p-2">
+      <div className="flex h-16 items-center gap-2 border-b border-black/10 px-3 lg:hidden">
+        <button onClick={() => setMenuOpen(true)} aria-label="Открыть меню" className="shrink-0 p-2">
           <MenuIcon className="size-7" />
         </button>
-        <a href="/" aria-label="На главную">
-          <img src="/brand/logo-cab-monogram.svg" alt="" className="size-20" />
+        <a href="/" aria-label={`${SITE_TITLE} — на главную`} className="min-w-0 flex-1">
+          <BrandLockup compact />
         </a>
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3">
           <button aria-label="Поиск"><SearchIcon className="size-6" /></button>
           <a href="/order" className="relative"><CartIcon className="size-6" /><Badge>{cartCount}</Badge></a>
         </div>

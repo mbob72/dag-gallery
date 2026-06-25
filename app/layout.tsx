@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Header } from '../src/components/Header';
+import { SITE_TITLE } from '../src/data/brand';
 import { getHomeSeo, toMetadata } from '../src/data/seo';
 import '../src/styles.css';
 
@@ -9,9 +10,9 @@ export const metadata: Metadata = {
   ...toMetadata(homeSeo),
   title: {
     default: homeSeo.title,
-    template: `%s | Caspian Art Bureau`,
+    template: `%s | ${SITE_TITLE}`,
   },
-  applicationName: 'Caspian Art Bureau',
+  applicationName: SITE_TITLE,
   category: 'art',
 };
 

@@ -1,3 +1,5 @@
+import { SITE_SUBTITLE, SITE_TITLE } from './brand';
+
 export type NavItem = {
   label: string;
   href: string;
@@ -63,18 +65,18 @@ export const catalogNav: NavItem[] = [
 export const heroSlides = [
   {
     image: '/userdata/homepage/slider/resized/3e/09/3e091e3a5623ec44a59c7c95fd6c5d63_1200_webp.webp?v1449',
-    title: 'Caspian Art Bureau',
-    subtitle: 'Современное и традиционное искусство Кавказа',
+    title: SITE_TITLE,
+    subtitle: SITE_SUBTITLE,
   },
   {
     image: '/userdata/homepage/slider/resized/c5/f4/c5f4b1222390ed071cb8a4c795d688d7_1200_webp.webp?v1449',
-    title: 'Caspian Art Bureau',
-    subtitle: 'Современное и традиционное искусство Кавказа',
+    title: SITE_TITLE,
+    subtitle: SITE_SUBTITLE,
   },
   {
     image: '/userdata/homepage/slider/resized/2c/13/2c13634c3906f51da78881cc0e564ddf_1200_webp.webp?v1449',
-    title: 'Caspian Art Bureau',
-    subtitle: 'Современное и традиционное искусство Кавказа',
+    title: SITE_TITLE,
+    subtitle: SITE_SUBTITLE,
   },
 ];
 

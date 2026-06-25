@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ArtworkCategory, ArtworkItem, ArtworkSupercategory } from './artworks';
+import { SITE_SUBTITLE, SITE_TITLE } from './brand';
 
 type SeoSource = 'site-taxonomy' | 'competitor-structure' | 'wordstat-seed' | 'webmaster-slot';
 
@@ -37,14 +38,14 @@ export type ResolvedSeoPage = SeoPageInput & {
   sourceNotes: string[];
 };
 
-const SITE_NAME = 'Caspian Art Bureau';
+const SITE_NAME = SITE_TITLE;
 const siteScope: SeoScope = {
   id: 'site',
   route: '/',
-  title: 'Caspian Art Bureau - современное и традиционное искусство Кавказа',
+  title: `${SITE_TITLE} - ${SITE_SUBTITLE}`,
   description:
     'Авторская живопись, графика и арт-объекты Натальи Савельевой: картины для интерьера, коллекции и частных собраний.',
-  h1: 'Caspian Art Bureau',
+  h1: SITE_TITLE,
   tags: ['современное искусство', 'традиционное искусство', 'искусство Кавказа', 'Наталья Савельева'],
   queries: [
     { phrase: 'картины купить', intent: 'buy', source: 'wordstat-seed', priority: 1 },
@@ -168,14 +169,14 @@ const utilitySeo: Record<string, SeoPageInput> = {
   user: {
     route: '/user',
     title: 'Личный кабинет',
-    description: 'Корзина и избранное пользователя Caspian Art Bureau.',
+    description: `Корзина и избранное пользователя ${SITE_NAME}.`,
     noindex: true,
     scopes: [siteScope],
   },
   order: {
     route: '/order',
     title: 'Корзина',
-    description: 'Оформление выбранных работ Caspian Art Bureau.',
+    description: `Оформление выбранных работ ${SITE_NAME}.`,
     noindex: true,
     scopes: [siteScope],
   },
@@ -216,7 +217,7 @@ export function getSupercategorySeo(supercategory: ArtworkSupercategory, artwork
   const scope: SeoScope = {
     id: `supercategory:${supercategory.id}`,
     route: `/supercategory/${supercategory.id}`,
-    title: `${supercategory.title} Натальи Савельевой - купить работы в Caspian Art Bureau`,
+    title: `${supercategory.title} Натальи Савельевой - купить работы в ${SITE_NAME}`,
     description: `${supercategory.description}. ${artworksCount} работ: авторское искусство для интерьера и коллекции.`,
     h1: scoped?.h1 ?? supercategory.title,
     tags: scoped?.tags ?? [supercategory.title],
@@ -266,7 +267,7 @@ export function getArtworkSeo(artwork: ArtworkItem) {
   const scope: SeoScope = {
     id: `artwork:${artwork.id}`,
     route: `/poster/${artwork.id}`,
-    title: `${artworkTitle} | купить ${artwork.category_label.toLowerCase()} в Caspian Art Bureau`,
+    title: `${artworkTitle} | купить ${artwork.category_label.toLowerCase()} в ${SITE_NAME}`,
     description: compactUnique([
       `${artwork.title} - работа Натальи Савельевой`,
       artwork.category_label,
