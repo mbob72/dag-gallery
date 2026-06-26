@@ -7,7 +7,15 @@ import { OrderSummary } from './OrderSummary';
 import { Container } from './Container';
 import { Footer } from './Sections';
 import { artworks } from '../data/artworks';
-import { cartChangeEventName, clearCart, readCart, removeFromCart, writeCart, type CartEntry } from '../data/cart';
+import {
+  addToFavorites,
+  cartChangeEventName,
+  clearCart,
+  readCart,
+  removeFromCart,
+  writeCart,
+  type CartEntry,
+} from '../data/cart';
 import { trackCartOpen, type AnalyticsArtworkItem } from '../data/analytics';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -96,6 +104,11 @@ export function OrderPage() {
     trackCartOpen(analyticsItems, totalRub);
   }, [analyticsItems, cartLoaded, totalRub]);
 
+  const moveToFavorites = (id: string) => {
+    addToFavorites(id);
+    removeFromCart(id);
+  };
+
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <ProductBreadcrumbs items={breadcrumbs} />
@@ -107,6 +120,7 @@ export function OrderPage() {
               <OrderCartItems
                 items={cartItems}
                 onRemove={removeFromCart}
+                onMoveToFavorites={moveToFavorites}
               />
               <OrderSummary
                 itemCount={itemCount}

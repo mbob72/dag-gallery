@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { addToCart, cartChangeEventName, readCart } from '../data/cart';
+import { cartChangeEventName, readCart, toggleCart } from '../data/cart';
 import { trackAddToCart, type AnalyticsArtworkItem } from '../data/analytics';
 import { CartIcon } from './icons';
 
@@ -37,17 +37,23 @@ export function AddToCartButton({
     };
   }, [artworkId]);
 
+  const handleClick = () => {
+    const added = toggleCart(artworkId);
+
+    if (added) {
+      trackAddToCart(analyticsItem ?? { id: artworkId });
+    }
+
+    setInCart(added);
+  };
+
   return (
     <button
       type="button"
-      aria-label={inCart ? 'В корзине' : label}
-      className={`${className} disabled:cursor-not-allowed disabled:border-accent disabled:bg-accent disabled:text-white`}
-      disabled={inCart}
-      onClick={() => {
-        addToCart(artworkId);
-        trackAddToCart(analyticsItem ?? { id: artworkId });
-        setInCart(true);
-      }}
+      aria-pressed={inCart}
+      aria-label={inCart ? 'Убрать из корзины' : label}
+      className={`${className} ${inCart ? '!border-accent !bg-accent !text-white hover:!bg-ink hover:!text-white' : ''}`}
+      onClick={handleClick}
     >
       <CartIcon className={iconClassName} />
       {showAddedText ? <span>{inCart ? 'В корзине' : label}</span> : null}

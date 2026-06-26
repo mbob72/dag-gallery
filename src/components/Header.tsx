@@ -3,7 +3,14 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import categoriesData from '../../public/artworks/categories.json';
 import { SITE_SUBTITLE, SITE_TITLE } from '../data/brand';
-import { cartChangeEventName, getCartCount, readCart } from '../data/cart';
+import {
+  cartChangeEventName,
+  favoriteChangeEventName,
+  getCartCount,
+  getFavoriteCount,
+  readCart,
+  readFavorites,
+} from '../data/cart';
 import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, TelegramIcon } from './icons';
 import { Container } from './Container';
 import { SmartImage } from './SmartImage';
@@ -41,17 +48,23 @@ function BrandLockup({ compact = false }: { compact?: boolean }) {
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [favoriteCount, setFavoriteCount] = useState(0);
 
   useEffect(() => {
-    const syncCartCount = () => setCartCount(getCartCount(readCart()));
+    const syncCounts = () => {
+      setCartCount(getCartCount(readCart()));
+      setFavoriteCount(getFavoriteCount(readFavorites()));
+    };
 
-    syncCartCount();
-    window.addEventListener(cartChangeEventName, syncCartCount);
-    window.addEventListener('storage', syncCartCount);
+    syncCounts();
+    window.addEventListener(cartChangeEventName, syncCounts);
+    window.addEventListener(favoriteChangeEventName, syncCounts);
+    window.addEventListener('storage', syncCounts);
 
     return () => {
-      window.removeEventListener(cartChangeEventName, syncCartCount);
-      window.removeEventListener('storage', syncCartCount);
+      window.removeEventListener(cartChangeEventName, syncCounts);
+      window.removeEventListener(favoriteChangeEventName, syncCounts);
+      window.removeEventListener('storage', syncCounts);
     };
   }, []);
 
@@ -86,7 +99,7 @@ export function Header() {
             </button>
           </form>
           <a href="/user" className="relative flex items-center gap-2 px-2 text-sm font-medium">
-            <HeartIcon className="size-6" /> Избранное <Badge>0</Badge>
+            <HeartIcon className="size-6" /> Избранное <Badge>{favoriteCount}</Badge>
           </a>
           <a href="/order" className="relative flex items-center gap-2 px-2 text-sm font-medium">
             <CartIcon className="size-6" /> Корзина <Badge>{cartCount}</Badge>
@@ -103,6 +116,7 @@ export function Header() {
         </a>
         <div className="flex shrink-0 items-center gap-3">
           <button aria-label="Поиск"><SearchIcon className="size-6" /></button>
+          <a href="/user" className="relative"><HeartIcon className="size-6" /><Badge>{favoriteCount}</Badge></a>
           <a href="/order" className="relative"><CartIcon className="size-6" /><Badge>{cartCount}</Badge></a>
         </div>
       </div>

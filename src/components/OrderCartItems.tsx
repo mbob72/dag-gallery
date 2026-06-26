@@ -28,9 +28,11 @@ function Price({ value }: { value: string }) {
 export function OrderCartItems({
   items,
   onRemove,
+  onMoveToFavorites,
 }: {
   items: OrderCartItem[];
   onRemove?: (id: string) => void;
+  onMoveToFavorites?: (id: string) => void;
 }) {
   if (items.length === 0) {
     return (
@@ -73,7 +75,11 @@ export function OrderCartItems({
             <div className="flex flex-col gap-3 sm:items-end sm:text-right">
               <Price value={item.price} />
               <div className="mt-auto space-y-1 text-sm">
-                <button type="button" className="block text-left text-black/45 transition hover:text-accent sm:text-right">
+                <button
+                  type="button"
+                  className="block text-left text-black/45 transition hover:text-accent sm:text-right"
+                  onClick={() => onMoveToFavorites?.(item.id)}
+                >
                   отложить в избранное
                 </button>
                 <button

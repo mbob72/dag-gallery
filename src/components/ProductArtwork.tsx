@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { CloseIcon, HeartIcon, MaximizeIcon } from './icons';
+import { CloseIcon, MaximizeIcon } from './icons';
 import { Container } from './Container';
 import { AddToCartButton } from './AddToCartButton';
+import { FavoriteButton } from './FavoriteButton';
 import { trackArtworkView } from '../data/analytics';
 
 export type ArtworkProduct = {
@@ -110,16 +111,12 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
       <Container>
         <div className="grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
           <aside className="grid gap-3 lg:sticky lg:top-6">
-            <button
-              type="button"
+            <FavoriteButton
+              artworkId={product.id}
               className="flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-4 text-sm font-medium text-ink transition hover:border-accent hover:text-accent lg:justify-start"
-            >
-              <HeartIcon className="size-5" />
-              <span>Добавить в избранное</span>
-              {typeof product.favoriteCount === 'number' && (
-                <span className="ml-auto hidden text-black/35 lg:inline">{product.favoriteCount}</span>
-              )}
-            </button>
+              showActiveText
+              count={product.favoriteCount}
+            />
             <AddToCartButton
               artworkId={product.id}
               analyticsItem={{

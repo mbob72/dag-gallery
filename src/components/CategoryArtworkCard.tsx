@@ -1,6 +1,6 @@
 import type { ArtworkItem } from '../data/artworks';
-import { HeartIcon } from './icons';
 import { AddToCartButton } from './AddToCartButton';
+import { FavoriteButton } from './FavoriteButton';
 import { SmartImage } from './SmartImage';
 
 const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
@@ -34,13 +34,11 @@ export function CategoryArtworkCard({ artwork }: { artwork: ArtworkItem }) {
           </a>
         </div>
 
-        <button
-          type="button"
-          aria-label="Добавить в избранное"
+        <FavoriteButton
+          artworkId={artwork.id}
           className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-accent hover:text-white"
-        >
-          <HeartIcon className="size-5" />
-        </button>
+          activeClassName="!bg-white !text-accent ring-1 ring-accent/35 hover:!bg-white hover:!text-accent"
+        />
 
         <div className="px-4 pb-4 pt-3">
           <h2 className="min-h-12 text-base font-medium leading-snug text-ink">
