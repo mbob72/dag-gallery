@@ -149,6 +149,7 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
                   placeholder={product.blurDataURL ? 'blur' : 'empty'}
                   blurDataURL={product.blurDataURL}
                   sizes={`(min-width: 1024px) ${imageFrameMaxWidth}px, 100vw`}
+                  unoptimized
                   className="h-auto w-full object-contain"
                 />
               </span>
