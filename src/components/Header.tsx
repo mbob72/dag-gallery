@@ -6,6 +6,7 @@ import { SITE_SUBTITLE, SITE_TITLE } from '../data/brand';
 import { cartChangeEventName, getCartCount, readCart } from '../data/cart';
 import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, TelegramIcon } from './icons';
 import { Container } from './Container';
+import { SmartImage } from './SmartImage';
 
 const categories = categoriesData as { id: string; title: string }[];
 const telegramChannelUrl = 'https://t.me/kavkazartburau';
@@ -17,9 +18,12 @@ function Badge({ children }: { children: ReactNode }) {
 function BrandLockup({ compact = false }: { compact?: boolean }) {
   return (
     <span className="flex min-w-0 items-center gap-2 sm:gap-3">
-      <img
+      <SmartImage
         src="/brand/logo-kavkaz-art-bureau.png"
         alt=""
+        width={80}
+        height={80}
+        priority
         className={compact ? 'size-11 shrink-0 object-contain sm:size-12' : 'size-20 shrink-0 object-contain'}
       />
       <span className="min-w-0 leading-none">

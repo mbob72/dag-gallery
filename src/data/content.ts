@@ -10,6 +10,7 @@ export type ImageLink = {
   title: string;
   href: string;
   image: string;
+  blurDataURL?: string;
   description?: string;
 };
 

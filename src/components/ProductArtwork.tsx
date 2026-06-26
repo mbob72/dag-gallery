@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { CloseIcon, HeartIcon, MaximizeIcon } from './icons';
 import { Container } from './Container';
@@ -11,6 +12,9 @@ export type ArtworkProduct = {
   title: string;
   author: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
+  blurDataURL?: string;
   favoriteCount?: number;
   category?: string;
   series?: string;
@@ -23,6 +27,7 @@ export type ArtworkProduct = {
 const src = (path: string) => path.startsWith('http') ? path : path;
 const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 const lightboxScale = 1.5;
+const productImageMaxHeight = 680;
 
 type ImageSize = {
   width: number;
@@ -34,6 +39,7 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
   const [lightboxImageSize, setLightboxImageSize] = useState<ImageSize | null>(null);
   const [viewportSize, setViewportSize] = useState<ImageSize | null>(null);
   const imageSrc = src(product.image);
+  const imageFrameMaxWidth = Math.round((productImageMaxHeight * product.imageWidth) / product.imageHeight);
   const specs = [
     product.category && ['Категория', product.category],
     product.series && ['Серия', product.series],
@@ -128,11 +134,24 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
               className="group relative block max-w-[760px] bg-[#f7f7f4] p-4 text-left outline-none transition hover:bg-[#f1f1ec] focus-visible:ring-2 focus-visible:ring-accent sm:p-8"
               aria-label="Развернуть изображение во весь экран"
             >
-              <img
-                src={imageSrc}
-                alt={product.title}
-                className="mx-auto h-auto max-h-[680px] w-full object-contain"
-              />
+              <span
+                className="mx-auto block w-full"
+                style={{
+                  maxWidth: `${imageFrameMaxWidth}px`,
+                }}
+              >
+                <Image
+                  src={imageSrc}
+                  alt={product.title}
+                  width={product.imageWidth}
+                  height={product.imageHeight}
+                  priority
+                  placeholder={product.blurDataURL ? 'blur' : 'empty'}
+                  blurDataURL={product.blurDataURL}
+                  sizes={`(min-width: 1024px) ${imageFrameMaxWidth}px, 100vw`}
+                  className="h-auto w-full object-contain"
+                />
+              </span>
               <span className="absolute right-4 top-4 flex size-10 items-center justify-center bg-white/90 text-ink shadow-sm transition group-hover:bg-ink group-hover:text-white sm:right-6 sm:top-6">
                 <MaximizeIcon className="size-5" />
               </span>

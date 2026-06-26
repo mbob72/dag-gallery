@@ -3,6 +3,7 @@ import { categoryGalleryItems } from '../data/artworks';
 import { SITE_TITLE } from '../data/brand';
 import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
+import { SmartImage } from './SmartImage';
 
 const url = (path: string) => path;
 
@@ -39,8 +40,8 @@ export function BenefitsGrid() {
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
           {benefits.map((benefit) => (
             <article key={benefit.title} className="text-center">
-              <div className="mx-auto mb-4 aspect-square max-w-[150px] overflow-hidden rounded-full bg-paper">
-                <img src={url(benefit.image)} alt="" loading="lazy" className="h-full w-full object-cover transition duration-500 hover:scale-105" />
+              <div className="relative mx-auto mb-4 aspect-square max-w-[150px] overflow-hidden rounded-full bg-paper">
+                <SmartImage src={url(benefit.image)} alt="" fill sizes="150px" className="object-cover transition duration-500 hover:scale-105" />
               </div>
               <h3 className="mx-auto max-w-[160px] text-sm font-medium leading-snug sm:text-base">{benefit.title}</h3>
             </article>
@@ -64,8 +65,8 @@ export function PopularCategories() {
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
           {popularCategories.map((item) => (
             <a key={item.title} href={url(item.href)} className="group bg-white p-2 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-              <div className="aspect-square overflow-hidden bg-zinc-100">
-                <img src={url(item.image)} alt={item.title} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              <div className="relative aspect-square overflow-hidden bg-zinc-100">
+                <SmartImage src={url(item.image)} alt={item.title} fill sizes="(min-width: 1024px) 12vw, (min-width: 640px) 25vw, 50vw" className="object-cover transition duration-500 group-hover:scale-105" />
               </div>
               <div className="min-h-14 px-1 py-3 text-center text-xs font-medium leading-snug sm:text-sm">{item.title}</div>
             </a>
@@ -91,7 +92,9 @@ export function FeatureSections() {
               </a>
             </div>
             <div className={`overflow-hidden bg-zinc-100 ${index % 2 ? 'lg:order-1' : ''}`}>
-              <img src={url(feature.image)} alt={feature.title} loading="lazy" className="aspect-[4/3] h-full w-full object-cover" />
+              <div className="relative aspect-[4/3]">
+                <SmartImage src={url(feature.image)} alt={feature.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              </div>
             </div>
           </article>
         ))}
@@ -103,7 +106,7 @@ export function FeatureSections() {
 function MosaicCard({ item, featured = false }: { item: ImageLink; featured?: boolean }) {
   return (
     <a href={item.href} className={`group relative isolate min-h-[240px] overflow-hidden bg-zinc-200 ${featured ? 'sm:row-span-2 sm:min-h-[500px]' : ''}`}>
-      <img src={item.image} alt={item.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+      <SmartImage src={item.image} alt={item.title} blurDataURL={item.blurDataURL} fill sizes={featured ? '(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw'} className="object-cover transition duration-700 group-hover:scale-105" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white sm:p-6">
         <h3 className="text-xl font-medium sm:text-2xl">{item.title}</h3>
@@ -151,10 +154,12 @@ export function MagomedMallakaevSection() {
       <Container>
         <SectionHeading title="Художник Магомед Маллакаев (Маг Хазар)" />
         <div className="max-w-sm overflow-hidden bg-zinc-100">
-          <img
+          <SmartImage
             src="/artists/magomed-mallakaev.jpeg"
             alt="Магомед Маллакаев (Маг Хазар)"
-            loading="lazy"
+            width={342}
+            height={426}
+            sizes="(min-width: 640px) 384px, 100vw"
             className="aspect-[342/426] w-full object-cover"
           />
         </div>
@@ -174,7 +179,7 @@ export function CustomArtBanner() {
     <section className="py-14 sm:py-20">
       <Container>
         <div className="relative isolate min-h-[390px] overflow-hidden bg-ink">
-          <img src={url('/userdata/page_block/preview/33/ec/33ec53be22ce4f6bd224e03ab6f4e282_webp.webp')} alt="Картина по фотографии" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-75" />
+          <SmartImage src={url('/userdata/page_block/preview/33/ec/33ec53be22ce4f6bd224e03ab6f4e282_webp.webp')} alt="Картина по фотографии" fill sizes="100vw" className="object-cover opacity-75" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
           <div className="relative flex min-h-[390px] max-w-2xl flex-col justify-center p-7 text-white sm:p-12 lg:p-16">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-orange-300">Персональный заказ</p>

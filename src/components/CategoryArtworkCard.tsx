@@ -1,6 +1,7 @@
 import type { ArtworkItem } from '../data/artworks';
 import { HeartIcon } from './icons';
 import { AddToCartButton } from './AddToCartButton';
+import { SmartImage } from './SmartImage';
 
 const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 
@@ -21,11 +22,13 @@ export function CategoryArtworkCard({ artwork }: { artwork: ArtworkItem }) {
         <div className="bg-[#f7f7f4] p-4">
           <a href={`/poster/${artwork.id}`} className="block">
             <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-white">
-              <img
+              <SmartImage
                 src={artwork.image}
                 alt={artwork.title}
-                loading="lazy"
-                className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                blurDataURL={artwork.blur_data_url}
+                fill
+                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 50vw"
+                className="object-contain p-3 transition duration-500 group-hover:scale-[1.03]"
               />
             </div>
           </a>

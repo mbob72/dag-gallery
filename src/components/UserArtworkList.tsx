@@ -1,4 +1,5 @@
 import { Container } from './Container';
+import { SmartImage } from './SmartImage';
 
 export type UserArtworkItem = {
   id: string;
@@ -21,11 +22,13 @@ export function UserArtworkList({ title, items }: { title: string; items: UserAr
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <a key={item.id} href={item.href} className="group block border border-black/10 bg-white transition hover:-translate-y-0.5 hover:shadow-soft">
-              <div className="aspect-[4/3] bg-[#f7f7f4] p-4">
-                <img
+              <div className="relative aspect-[4/3] bg-[#f7f7f4]">
+                <SmartImage
                   src={item.image}
                   alt={item.title}
-                  className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-contain p-4 transition duration-500 group-hover:scale-[1.02]"
                 />
               </div>
               <div className="space-y-2 border-t border-black/10 p-4">

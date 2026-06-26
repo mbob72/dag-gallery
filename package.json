@@ -14,6 +14,7 @@
     "test:watch": "vitest",
     "storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006",
     "build-storybook": "CI=1 STORYBOOK_DISABLE_TELEMETRY=1 storybook build",
+    "build:image-blurs": "node scripts/build-image-blurs.mjs",
     "prepare": "husky",
     "build": "next build --webpack",
     "start": "next start",
@@ -23,7 +24,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "resend": "^6.14.0"
+    "resend": "^6.14.0",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^10.4.6",

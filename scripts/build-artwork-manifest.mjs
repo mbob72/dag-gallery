@@ -1,5 +1,6 @@
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import sharp from 'sharp';
 
 const paintingSourceDir = 'images/painting/images';
 const graphicsSourceDir = 'images/graphics/artworks';
@@ -130,6 +131,16 @@ function csvValue(value) {
   return normalized;
 }
 
+async function createBlurDataUrl(filePath) {
+  const buffer = await sharp(filePath)
+    .rotate()
+    .resize({ width: 16, height: 16, fit: 'inside' })
+    .webp({ quality: 35 })
+    .toBuffer();
+
+  return `data:image/webp;base64,${buffer.toString('base64')}`;
+}
+
 mkdirSync(join(publicRoot, 'painting'), { recursive: true });
 mkdirSync(join(publicRoot, 'graphics'), { recursive: true });
 
@@ -141,7 +152,12 @@ for (const item of graphics) {
   copyFileSync(join(graphicsSourceDir, item.filename), join(publicRoot, 'graphics', item.filename));
 }
 
-const artworks = [...painting.map(normalizePainting), ...graphics.map(normalizeGraphics)];
+const artworks = await Promise.all(
+  [...painting.map(normalizePainting), ...graphics.map(normalizeGraphics)].map(async (artwork) => ({
+    ...artwork,
+    blur_data_url: await createBlurDataUrl(artwork.original_file),
+  })),
+);
 for (const supercategory of supercategories) {
   normalizeCategory(supercategory.category);
 }

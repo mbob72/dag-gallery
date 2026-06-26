@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import { SmartImage } from './SmartImage';
+
 export type OrderCartItem = {
   id: string;
   title: string;
@@ -41,9 +44,9 @@ export function OrderCartItems({
     <div className="space-y-4">
       {items.map((item) => {
         const image = (
-          <div className="relative aspect-[4/3] bg-[#f7f7f4] p-4">
-            <img src={item.image} alt={item.title} className="h-full w-full object-contain" />
-            {item.badge && <img src={item.badge} alt="" className="absolute right-3 top-3 size-11 object-contain" />}
+          <div className="relative aspect-[4/3] bg-[#f7f7f4]">
+            <SmartImage src={item.image} alt={item.title} fill sizes="190px" className="object-contain p-4" />
+            {item.badge && <Image src={item.badge} alt="" width={44} height={44} className="absolute right-3 top-3 size-11 object-contain" />}
           </div>
         );
 

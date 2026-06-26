@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { supercategoryHeroItems } from '../data/artworks';
 import { ArrowRightIcon } from './icons';
 import { Container } from './Container';
+import { SmartImage } from './SmartImage';
 
 export function Hero() {
   const [active, setActive] = useState(0);
@@ -37,7 +38,17 @@ export function Hero() {
                     : 'bottom-[8%] right-[18%] h-[22%] w-[42%] sm:bottom-[12%] sm:right-[7%] sm:h-[30%] sm:w-[28%] lg:w-[22%]'
               }`}
             >
-              <img src={artwork.image} alt={artwork.title} className="h-full w-full object-contain p-3 sm:p-4" />
+              <span className="absolute inset-0 p-3 sm:p-4">
+                <SmartImage
+                  src={artwork.image}
+                  alt={artwork.title}
+                  blurDataURL={artwork.blur_data_url}
+                  fill
+                  priority={index === 0}
+                  sizes={index === 0 ? '(min-width: 1024px) 38vw, (min-width: 640px) 48vw, 82vw' : '(min-width: 1024px) 22vw, (min-width: 640px) 28vw, 48vw'}
+                  className="object-contain"
+                />
+              </span>
             </a>
           ))}
 

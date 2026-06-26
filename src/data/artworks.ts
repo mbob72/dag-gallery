@@ -39,6 +39,7 @@ export type ArtworkItem = {
   width_px: number;
   height_px: number;
   format: string;
+  blur_data_url?: string;
 };
 
 type ArtworkManifestItem = Omit<ArtworkItem, 'artist' | 'category_labels' | 'category_label'>;
@@ -70,6 +71,7 @@ export const categoryGalleryItems = categories.flatMap((category) => {
     title: category.title,
     href: `/category/${category.id}`,
     image: artwork.image,
+    blurDataURL: artwork.blur_data_url,
   };
 });
 
