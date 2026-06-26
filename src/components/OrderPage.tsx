@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
 import { OrderCartItems, type OrderCartItem } from './OrderCartItems';
 import { OrderSummary } from './OrderSummary';
@@ -8,6 +8,7 @@ import { Container } from './Container';
 import { Footer } from './Sections';
 import { artworks } from '../data/artworks';
 import { cartChangeEventName, clearCart, readCart, removeFromCart, writeCart, type CartEntry } from '../data/cart';
+import { trackCartOpen, type AnalyticsArtworkItem } from '../data/analytics';
 
 const breadcrumbs: BreadcrumbItem[] = [
   { label: 'Главная', href: '/' },
@@ -23,9 +24,14 @@ function dimensionsText(widthPx: number, heightPx: number, dimensions?: string) 
 
 export function OrderPage() {
   const [cartEntries, setCartEntries] = useState<CartEntry[]>([]);
+  const [cartLoaded, setCartLoaded] = useState(false);
+  const cartOpenTracked = useRef(false);
 
   useEffect(() => {
-    const syncCart = () => setCartEntries(readCart());
+    const syncCart = () => {
+      setCartEntries(readCart());
+      setCartLoaded(true);
+    };
 
     syncCart();
     window.addEventListener(cartChangeEventName, syncCart);
@@ -63,12 +69,32 @@ export function OrderPage() {
     return sum + (artwork?.price_rub ?? 0);
   }, 0);
   const itemCount = validEntries.length;
+  const analyticsItems: AnalyticsArtworkItem[] = useMemo(() => validEntries.map((entry) => {
+    const artwork = artworkById.get(entry.id);
+
+    return {
+      id: entry.id,
+      title: artwork?.title,
+      category: artwork?.category_label,
+      priceRub: artwork?.price_rub,
+      quantity: entry.quantity,
+    };
+  }), [validEntries]);
 
   useEffect(() => {
     if (cartEntries.length !== validEntries.length) {
       writeCart(validEntries);
     }
   }, [cartEntries, validEntries]);
+
+  useEffect(() => {
+    if (!cartLoaded || cartOpenTracked.current) {
+      return;
+    }
+
+    cartOpenTracked.current = true;
+    trackCartOpen(analyticsItems, totalRub);
+  }, [analyticsItems, cartLoaded, totalRub]);
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -82,7 +108,13 @@ export function OrderPage() {
                 items={cartItems}
                 onRemove={removeFromCart}
               />
-              <OrderSummary itemCount={itemCount} items={validEntries} totalRub={totalRub} onRequestSent={clearCart} />
+              <OrderSummary
+                itemCount={itemCount}
+                items={validEntries}
+                analyticsItems={analyticsItems}
+                totalRub={totalRub}
+                onRequestSent={clearCart}
+              />
             </div>
           </Container>
         </section>

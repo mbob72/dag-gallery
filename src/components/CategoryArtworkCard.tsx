@@ -73,6 +73,12 @@ export function CategoryArtworkCard({ artwork }: { artwork: ArtworkItem }) {
             </a>
             <AddToCartButton
               artworkId={artwork.id}
+              analyticsItem={{
+                id: artwork.id,
+                title: artwork.title,
+                category: artwork.category_label,
+                priceRub: artwork.price_rub,
+              }}
               className="grid size-11 shrink-0 place-items-center border border-black/15 bg-white text-ink transition hover:border-accent hover:bg-accent hover:text-white"
             />
           </div>

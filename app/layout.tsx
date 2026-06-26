@@ -21,6 +21,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ru">
       <body>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-C6YEGNN10T" strategy="beforeInteractive" />
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C6YEGNN10T');
+          `}
+        </Script>
         <Script id="yandex-metrika" strategy="beforeInteractive">
           {`
             (function(m,e,t,r,i,k,a){

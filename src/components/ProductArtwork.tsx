@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { CloseIcon, HeartIcon, MaximizeIcon } from './icons';
 import { Container } from './Container';
 import { AddToCartButton } from './AddToCartButton';
+import { trackArtworkView } from '../data/analytics';
 
 export type ArtworkProduct = {
   id: string;
@@ -47,6 +48,15 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
     product.dimensions && ['Размер', product.dimensions],
     product.year && ['Год', product.year],
   ].filter(Boolean) as [string, string | number][];
+
+  useEffect(() => {
+    trackArtworkView({
+      id: product.id,
+      title: product.title,
+      category: product.category,
+      priceRub: product.priceRub,
+    });
+  }, [product.category, product.id, product.priceRub, product.title]);
 
   useEffect(() => {
     if (!lightboxOpen) {
@@ -112,6 +122,12 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
             </button>
             <AddToCartButton
               artworkId={product.id}
+              analyticsItem={{
+                id: product.id,
+                title: product.title,
+                category: product.category,
+                priceRub: product.priceRub,
+              }}
               className="flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-4 text-sm font-medium text-ink transition hover:border-accent hover:text-accent lg:justify-start"
               showAddedText
             />

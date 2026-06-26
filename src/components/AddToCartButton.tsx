@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { addToCart, cartChangeEventName, readCart } from '../data/cart';
+import { trackAddToCart, type AnalyticsArtworkItem } from '../data/analytics';
 import { CartIcon } from './icons';
 
 type AddToCartButtonProps = {
@@ -10,6 +11,7 @@ type AddToCartButtonProps = {
   className: string;
   iconClassName?: string;
   showAddedText?: boolean;
+  analyticsItem?: AnalyticsArtworkItem;
 };
 
 export function AddToCartButton({
@@ -18,6 +20,7 @@ export function AddToCartButton({
   className,
   iconClassName = 'size-5',
   showAddedText = false,
+  analyticsItem,
 }: AddToCartButtonProps) {
   const [inCart, setInCart] = useState(false);
 
@@ -42,6 +45,7 @@ export function AddToCartButton({
       disabled={inCart}
       onClick={() => {
         addToCart(artworkId);
+        trackAddToCart(analyticsItem ?? { id: artworkId });
         setInCart(true);
       }}
     >

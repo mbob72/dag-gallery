@@ -2,17 +2,20 @@
 
 import { useState, type FormEvent } from 'react';
 import type { CartEntry } from '../data/cart';
+import { trackOrderRequestSuccess, type AnalyticsArtworkItem } from '../data/analytics';
 
 const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 
 export function OrderSummary({
   itemCount,
   items,
+  analyticsItems,
   totalRub,
   onRequestSent,
 }: {
   itemCount: number;
   items: CartEntry[];
+  analyticsItems: AnalyticsArtworkItem[];
   totalRub: number;
   onRequestSent?: () => void;
 }) {
@@ -67,6 +70,7 @@ export function OrderSummary({
         return;
       }
 
+      trackOrderRequestSuccess(analyticsItems, totalRub);
       onRequestSent?.();
       setPhone('');
       setEmail('');
