@@ -6,7 +6,7 @@ import { OrderCartItems, type OrderCartItem } from './OrderCartItems';
 import { OrderSummary } from './OrderSummary';
 import { Container } from './Container';
 import { Footer } from './Sections';
-import { artworks } from '../data/artworks';
+import { artworks, canOrderArtwork } from '../data/artworks';
 import {
   addToFavorites,
   cartChangeEventName,
@@ -51,7 +51,13 @@ export function OrderPage() {
     };
   }, []);
 
-  const validEntries = useMemo(() => cartEntries.filter((entry) => artworkById.has(entry.id)), [cartEntries]);
+  const validEntries = useMemo(
+    () => cartEntries.filter((entry) => {
+      const artwork = artworkById.get(entry.id);
+      return artwork ? canOrderArtwork(artwork) : false;
+    }),
+    [cartEntries],
+  );
   const cartItems: OrderCartItem[] = useMemo(() => validEntries.map((entry) => {
     const artwork = artworkById.get(entry.id)!;
 

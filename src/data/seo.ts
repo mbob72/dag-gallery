@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import type { ArtworkCategory, ArtworkItem, ArtworkSupercategory } from './artworks';
+import { getArtworkStatusLabel, type ArtworkCategory, type ArtworkItem, type ArtworkSupercategory } from './artworks';
 import { SITE_SUBTITLE, SITE_TITLE } from './brand';
 
 type SeoSource = 'site-taxonomy' | 'competitor-structure' | 'wordstat-seed' | 'webmaster-slot';
@@ -264,15 +264,16 @@ export function getArtworkSeo(artwork: ArtworkItem) {
   const categoryScope = primaryCategoryId ? categorySeo[primaryCategoryId] : undefined;
   const artworkTitle = `${artwork.title} - ${artwork.artist}`;
   const medium = compactUnique([artwork.medium, artwork.dimensions, artwork.year ? String(artwork.year) : undefined]).join(', ');
+  const statusLabel = getArtworkStatusLabel(artwork);
   const scope: SeoScope = {
     id: `artwork:${artwork.id}`,
     route: `/poster/${artwork.id}`,
     title: `${artworkTitle} | купить ${artwork.category_label.toLowerCase()} в ${SITE_NAME}`,
     description: compactUnique([
-      `${artwork.title} - работа Натальи Савельевой`,
+      `${artwork.title} - работа ${artwork.artist}`,
       artwork.category_label,
       medium,
-      artwork.price_rub ? `цена ${artwork.price_rub.toLocaleString('ru-RU')} ₽` : 'цена по запросу',
+      statusLabel ? statusLabel.toLowerCase() : artwork.price_rub ? `цена ${artwork.price_rub.toLocaleString('ru-RU')} ₽` : 'цена по запросу',
     ]).join('. '),
     h1: artwork.title,
     tags: compactUnique([

@@ -6,6 +6,7 @@ const baseArtwork: SearchableArtworkItem = {
   source_id: 'BASE-1',
   title: 'Базовая работа',
   artist: 'Наталья Савельева',
+  status: 'available',
   category_label: 'Пейзажи',
   category_labels: ['Пейзажи'],
   collection: 'painting',

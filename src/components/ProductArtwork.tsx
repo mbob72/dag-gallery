@@ -7,12 +7,14 @@ import { Container } from './Container';
 import { AddToCartButton } from './AddToCartButton';
 import { FavoriteButton } from './FavoriteButton';
 import { trackArtworkView } from '../data/analytics';
+import type { ArtworkStatus } from '../data/artworks';
 
 export type ArtworkProduct = {
   id: string;
   article: string;
   title: string;
   author: string;
+  status: ArtworkStatus;
   image: string;
   imageWidth: number;
   imageHeight: number;
@@ -30,6 +32,11 @@ const src = (path: string) => path.startsWith('http') ? path : path;
 const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 const lightboxScale = 1.5;
 const productImageMaxHeight = 680;
+const statusLabelByStatus: Record<ArtworkStatus, string | null> = {
+  available: null,
+  sold: 'Продано',
+  reserved: 'Бронь',
+};
 
 type ImageSize = {
   width: number;
@@ -41,6 +48,8 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
   const [lightboxImageSize, setLightboxImageSize] = useState<ImageSize | null>(null);
   const [viewportSize, setViewportSize] = useState<ImageSize | null>(null);
   const imageSrc = src(product.image);
+  const statusLabel = statusLabelByStatus[product.status];
+  const canOrder = product.status === 'available';
   const imageFrameMaxWidth = Math.round((productImageMaxHeight * product.imageWidth) / product.imageHeight);
   const specs = [
     product.category && ['Категория', product.category],
@@ -117,17 +126,19 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
               showActiveText
               count={product.favoriteCount}
             />
-            <AddToCartButton
-              artworkId={product.id}
-              analyticsItem={{
-                id: product.id,
-                title: product.title,
-                category: product.category,
-                priceRub: product.priceRub,
-              }}
-              className="flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-4 text-sm font-medium text-ink transition hover:border-accent hover:text-accent lg:justify-start"
-              showAddedText
-            />
+            {canOrder && (
+              <AddToCartButton
+                artworkId={product.id}
+                analyticsItem={{
+                  id: product.id,
+                  title: product.title,
+                  category: product.category,
+                  priceRub: product.priceRub,
+                }}
+                className="flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-4 text-sm font-medium text-ink transition hover:border-accent hover:text-accent lg:justify-start"
+                showAddedText
+              />
+            )}
           </aside>
 
           <article>
@@ -171,7 +182,7 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
               </span>
             </button>
 
-            {(specs.length > 0 || product.priceRub) && (
+            {(specs.length > 0 || product.priceRub || statusLabel) && (
               <div className="mt-8 grid max-w-[760px] gap-6 border-t border-black/10 pt-6 md:grid-cols-[1fr_220px]">
                 {specs.length > 0 && (
                   <dl className="grid gap-3 text-sm sm:grid-cols-2">
@@ -184,10 +195,12 @@ export function ProductArtwork({ product }: { product: ArtworkProduct }) {
                   </dl>
                 )}
 
-                {product.priceRub && (
+                {(product.priceRub || statusLabel) && (
                   <div className="md:text-right">
                     <p className="text-sm text-black/45">Цена</p>
-                    <p className="mt-1 text-2xl font-light text-ink">{formatPrice(product.priceRub)} ₽</p>
+                    <p className="mt-1 text-2xl font-light text-ink">
+                      {statusLabel ?? `${formatPrice(product.priceRub!)} ₽`}
+                    </p>
                   </div>
                 )}
               </div>

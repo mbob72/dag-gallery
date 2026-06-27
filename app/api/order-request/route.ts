@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { artworks, type ArtworkItem } from '../../../src/data/artworks';
+import { artworks, canOrderArtwork, type ArtworkItem } from '../../../src/data/artworks';
 
 type CartItemInput = {
   id: string;
@@ -180,7 +180,8 @@ export async function POST(request: Request) {
   const cartItems = normalizeCartItems('items' in body ? body.items : undefined);
   const requestedArtworks = cartItems
     .map((item) => artworkById.get(item.id))
-    .filter((artwork): artwork is ArtworkItem => Boolean(artwork));
+    .filter((artwork): artwork is ArtworkItem => Boolean(artwork))
+    .filter(canOrderArtwork);
 
   if (requestedArtworks.length === 0) {
     return NextResponse.json({ message: 'В корзине нет работ для запроса.' }, { status: 400 });

@@ -1,9 +1,11 @@
 import { Container } from './Container';
 import { SmartImage } from './SmartImage';
+import type { ArtworkStatus } from '../data/artworks';
 
 type UserArtworkAction = {
   label: string;
   onClick: (id: string) => void;
+  isVisible?: (item: UserArtworkItem) => boolean;
 };
 
 export type UserArtworkItem = {
@@ -12,15 +14,27 @@ export type UserArtworkItem = {
   title: string;
   href: string;
   attributes: string[];
-  price: string;
+  priceRub: number | null;
+  status: ArtworkStatus;
+  canOrder: boolean;
 };
 
-function Price({ value }: { value: string }) {
-  if (value.toLowerCase() === 'по запросу') {
-    return <span className="text-sm font-medium text-ink">{value}</span>;
+const statusLabelByStatus: Record<ArtworkStatus, string | null> = {
+  available: null,
+  sold: 'Продано',
+  reserved: 'Бронь',
+};
+
+const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
+
+function Price({ priceRub, status }: { priceRub: number | null; status: ArtworkStatus }) {
+  const statusLabel = statusLabelByStatus[status];
+
+  if (statusLabel || priceRub === null) {
+    return <span className="text-sm font-medium text-ink">{statusLabel ?? 'по запросу'}</span>;
   }
 
-  return <span className="text-xl font-medium text-ink">{value} ₽</span>;
+  return <span className="text-xl font-medium text-ink">{formatPrice(priceRub)} ₽</span>;
 }
 
 export function UserArtworkList({
@@ -29,6 +43,7 @@ export function UserArtworkList({
   emptyMessage = 'Список пока пуст.',
   actionLabel,
   onAction,
+  actionDisabled,
   itemActions = [],
 }: {
   title: string;
@@ -36,6 +51,7 @@ export function UserArtworkList({
   emptyMessage?: string;
   actionLabel?: string;
   onAction?: () => void;
+  actionDisabled?: boolean;
   itemActions?: UserArtworkAction[];
 }) {
   return (
@@ -48,7 +64,7 @@ export function UserArtworkList({
               <button
                 type="button"
                 className="bg-accent px-4 py-2 text-sm font-bold text-white transition hover:bg-ink disabled:cursor-not-allowed disabled:bg-black/25"
-                disabled={items.length === 0}
+                disabled={actionDisabled ?? items.length === 0}
                 onClick={onAction}
               >
                 {actionLabel}
@@ -92,9 +108,9 @@ export function UserArtworkList({
               </div>
 
               <div className="flex flex-col gap-3 sm:items-end sm:text-right">
-                <Price value={item.price} />
+                <Price priceRub={item.priceRub} status={item.status} />
                 <div className="mt-auto space-y-1 text-sm">
-                  {itemActions.map((action) => (
+                  {itemActions.filter((action) => action.isVisible?.(item) ?? true).map((action) => (
                     <button
                       key={action.label}
                       type="button"

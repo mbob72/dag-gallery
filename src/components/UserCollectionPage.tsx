@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ProductBreadcrumbs, type BreadcrumbItem } from './ProductBreadcrumbs';
 import { Footer } from './Sections';
 import { UserArtworkList, type UserArtworkItem } from './UserArtworkList';
-import { artworks } from '../data/artworks';
+import { artworks, canOrderArtwork } from '../data/artworks';
 import {
   addToCart,
   addToFavorites,
@@ -25,8 +25,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const artworkById = new Map(artworks.map((artwork) => [artwork.id, artwork]));
-
-const formatPrice = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 
 function dimensionsText(widthPx: number, heightPx: number, dimensions?: string) {
   return dimensions || `${widthPx}x${heightPx} px`;
@@ -52,7 +50,9 @@ function toUserArtworkItems(entries: CartEntry[]): UserArtworkItem[] {
         artwork.medium && `Материал: ${artwork.medium}`,
         artwork.category_label && `Категория: ${artwork.category_label}`,
       ].filter(Boolean) as string[],
-      price: artwork.price_rub ? formatPrice(artwork.price_rub) : 'по запросу',
+      priceRub: artwork.price_rub,
+      status: artwork.status,
+      canOrder: canOrderArtwork(artwork),
     };
   });
 }
@@ -79,10 +79,17 @@ export function UserCollectionPage() {
     };
   }, []);
 
-  const validCartEntries = useMemo(() => cartEntries.filter((entry) => artworkById.has(entry.id)), [cartEntries]);
+  const validCartEntries = useMemo(
+    () => cartEntries.filter((entry) => {
+      const artwork = artworkById.get(entry.id);
+      return artwork ? canOrderArtwork(artwork) : false;
+    }),
+    [cartEntries],
+  );
   const validFavoriteEntries = useMemo(() => favoriteEntries.filter((entry) => artworkById.has(entry.id)), [favoriteEntries]);
   const cartItems = useMemo(() => toUserArtworkItems(validCartEntries), [validCartEntries]);
   const favoriteItems = useMemo(() => toUserArtworkItems(validFavoriteEntries), [validFavoriteEntries]);
+  const hasAvailableFavorites = favoriteItems.some((item) => item.canOrder);
 
   useEffect(() => {
     if (cartEntries.length !== validCartEntries.length) {
@@ -97,7 +104,10 @@ export function UserCollectionPage() {
   }, [favoriteEntries, validFavoriteEntries]);
 
   const addAllFavoritesToCart = () => {
-    writeCart([...readCart(), ...validFavoriteEntries]);
+    writeCart([...readCart(), ...validFavoriteEntries.filter((entry) => {
+      const artwork = artworkById.get(entry.id);
+      return artwork ? canOrderArtwork(artwork) : false;
+    })]);
   };
 
   return (
@@ -119,8 +129,9 @@ export function UserCollectionPage() {
           emptyMessage="В избранном пока нет работ."
           actionLabel="Добавить все в корзину"
           onAction={addAllFavoritesToCart}
+          actionDisabled={!hasAvailableFavorites}
           itemActions={[
-            { label: 'Добавить в корзину', onClick: addToCart },
+            { label: 'Добавить в корзину', onClick: addToCart, isVisible: (item) => item.canOrder },
             { label: 'Удалить', onClick: removeFromFavorites },
           ]}
         />

@@ -1,4 +1,4 @@
-import type { ArtworkItem } from '../data/artworks';
+import { canOrderArtwork, getArtworkStatusLabel, type ArtworkItem } from '../data/artworks';
 import { AddToCartButton } from './AddToCartButton';
 import { FavoriteButton } from './FavoriteButton';
 import { SmartImage } from './SmartImage';
@@ -14,7 +14,9 @@ function dimensionsText(artwork: ArtworkItem) {
 }
 
 export function CategoryArtworkCard({ artwork }: { artwork: ArtworkItem }) {
-  const price = artwork.price_rub ? `от ${formatPrice(artwork.price_rub)} ₽` : 'по запросу';
+  const statusLabel = getArtworkStatusLabel(artwork);
+  const canOrder = canOrderArtwork(artwork);
+  const price = statusLabel ?? (artwork.price_rub ? `от ${formatPrice(artwork.price_rub)} ₽` : 'по запросу');
 
   return (
     <article className="group bg-white">
@@ -69,16 +71,18 @@ export function CategoryArtworkCard({ artwork }: { artwork: ArtworkItem }) {
             >
               Подробнее
             </a>
-            <AddToCartButton
-              artworkId={artwork.id}
-              analyticsItem={{
-                id: artwork.id,
-                title: artwork.title,
-                category: artwork.category_label,
-                priceRub: artwork.price_rub,
-              }}
-              className="grid size-11 shrink-0 place-items-center border border-black/15 bg-white text-ink transition hover:border-accent hover:bg-accent hover:text-white"
-            />
+            {canOrder && (
+              <AddToCartButton
+                artworkId={artwork.id}
+                analyticsItem={{
+                  id: artwork.id,
+                  title: artwork.title,
+                  category: artwork.category_label,
+                  priceRub: artwork.price_rub,
+                }}
+                className="grid size-11 shrink-0 place-items-center border border-black/15 bg-white text-ink transition hover:border-accent hover:bg-accent hover:text-white"
+              />
+            )}
           </div>
         </div>
       </div>

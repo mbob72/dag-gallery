@@ -10,13 +10,16 @@ import {
   getFavoriteCount,
   readCart,
   readFavorites,
+  writeCart,
 } from '../data/cart';
+import { artworks, canOrderArtwork } from '../data/artworks';
 import { CartIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, TelegramIcon } from './icons';
 import { Container } from './Container';
 import { SmartImage } from './SmartImage';
 
 const categories = categoriesData as { id: string; title: string }[];
 const telegramChannelUrl = 'https://t.me/kavkazartburau';
+const artworkById = new Map(artworks.map((artwork) => [artwork.id, artwork]));
 
 function Badge({ children }: { children: ReactNode }) {
   return <span className="absolute -right-2 -top-2 min-w-5 rounded-full bg-accent px-1 text-center text-[11px] font-bold leading-5 text-white">{children}</span>;
@@ -52,7 +55,18 @@ export function Header() {
 
   useEffect(() => {
     const syncCounts = () => {
-      setCartCount(getCartCount(readCart()));
+      const cartEntries = readCart();
+      const orderableCartEntries = cartEntries.filter((entry) => {
+        const artwork = artworkById.get(entry.id);
+        return artwork ? canOrderArtwork(artwork) : false;
+      });
+
+      if (cartEntries.length !== orderableCartEntries.length) {
+        writeCart(orderableCartEntries);
+        return;
+      }
+
+      setCartCount(getCartCount(orderableCartEntries));
       setFavoriteCount(getFavoriteCount(readFavorites()));
     };
 

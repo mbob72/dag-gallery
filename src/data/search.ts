@@ -6,6 +6,7 @@ export type SearchableArtworkItem = Pick<
   | 'source_id'
   | 'title'
   | 'artist'
+  | 'status'
   | 'category_label'
   | 'category_labels'
   | 'collection'
@@ -46,6 +47,9 @@ function searchableText(item: SearchableArtworkItem) {
     item.source_id,
     item.title,
     item.artist,
+    item.status,
+    item.status === 'sold' ? 'продано' : '',
+    item.status === 'reserved' ? 'бронь' : '',
     item.category_label,
     ...item.category_labels,
     item.collection === 'graphics' ? 'графика graphics' : 'живопись painting',

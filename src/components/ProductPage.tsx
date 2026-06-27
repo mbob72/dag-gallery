@@ -18,6 +18,7 @@ function getProduct(artwork: ArtworkItem): ArtworkProduct {
     article: artwork.source_id,
     title: artwork.title,
     author: artwork.artist,
+    status: artwork.status,
     image: artwork.image,
     imageWidth: artwork.width_px,
     imageHeight: artwork.height_px,

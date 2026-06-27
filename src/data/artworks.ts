@@ -3,6 +3,7 @@ import categoriesData from '../../public/artworks/categories.json';
 import supercategoriesData from '../../public/artworks/supercategories.json';
 
 export type ArtworkCategoryId = string;
+export type ArtworkStatus = 'available' | 'sold' | 'reserved';
 
 export type ArtworkCategory = {
   id: ArtworkCategoryId;
@@ -22,6 +23,7 @@ export type ArtworkItem = {
   source_id: string;
   title: string;
   artist: string;
+  status: ArtworkStatus;
   slug: string;
   category: ArtworkCategoryId[];
   category_labels: string[];
@@ -42,7 +44,10 @@ export type ArtworkItem = {
   blur_data_url?: string;
 };
 
-type ArtworkManifestItem = Omit<ArtworkItem, 'artist' | 'category_labels' | 'category_label'>;
+type ArtworkManifestItem = Omit<ArtworkItem, 'category_labels' | 'category_label' | 'artist' | 'status'> & {
+  artist?: string;
+  status?: ArtworkStatus;
+};
 
 export const categories = categoriesData as ArtworkCategory[];
 export const supercategories = supercategoriesData as ArtworkSupercategory[];
@@ -54,11 +59,24 @@ export const artworks = (artworksData as ArtworkManifestItem[]).map((artwork) =>
 
   return {
     ...artwork,
-    artist: 'Наталья Савельева',
+    artist: artwork.artist ?? 'Наталья Савельева',
+    status: artwork.status ?? 'available',
     category_labels: categoryLabels,
     category_label: categoryLabels.join(', '),
   };
 });
+
+export function canOrderArtwork(artwork: Pick<ArtworkItem, 'status'>) {
+  return artwork.status === 'available';
+}
+
+export function getArtworkStatusLabel(artwork: Pick<ArtworkItem, 'status'>) {
+  return {
+    available: null,
+    sold: 'Продано',
+    reserved: 'Бронь',
+  }[artwork.status];
+}
 
 export const categoryGalleryItems = categories.flatMap((category) => {
   const artwork = artworks.find((item) => item.category.includes(category.id));
