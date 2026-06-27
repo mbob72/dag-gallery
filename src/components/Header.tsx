@@ -87,13 +87,14 @@ export function Header() {
 
       <div className="border-y border-black/10 bg-[#f6f6f4]">
         <Container className="hidden h-16 items-center gap-5 lg:flex">
-          <form className="flex h-11 flex-1 overflow-hidden rounded-sm border border-black/15 bg-white" onSubmit={(event) => event.preventDefault()}>
+          <form action="/search" method="get" className="flex h-11 flex-1 overflow-hidden rounded-sm border border-black/15 bg-white">
             <input
               type="search"
+              name="q"
               placeholder="Поиск по названию, автору или артикулу"
               className="min-w-0 flex-1 px-4 text-sm outline-none placeholder:text-black/35"
             />
-            <button className="flex items-center gap-2 bg-ink px-6 text-sm font-medium text-white transition hover:bg-black">
+            <button type="submit" className="flex items-center gap-2 bg-ink px-6 text-sm font-medium text-white transition hover:bg-black">
               <SearchIcon className="size-5" />
               Поиск
             </button>
@@ -115,10 +116,23 @@ export function Header() {
           <BrandLockup compact />
         </a>
         <div className="flex shrink-0 items-center gap-3">
-          <button aria-label="Поиск"><SearchIcon className="size-6" /></button>
           <a href="/user" className="relative"><HeartIcon className="size-6" /><Badge>{favoriteCount}</Badge></a>
           <a href="/order" className="relative"><CartIcon className="size-6" /><Badge>{cartCount}</Badge></a>
         </div>
+      </div>
+
+      <div className="border-b border-black/10 bg-[#f6f6f4] px-3 py-3 lg:hidden">
+        <form action="/search" method="get" className="flex h-11 overflow-hidden border border-black/15 bg-white">
+          <input
+            type="search"
+            name="q"
+            placeholder="Поиск"
+            className="min-w-0 flex-1 px-3 text-sm outline-none placeholder:text-black/35"
+          />
+          <button type="submit" className="grid w-12 shrink-0 place-items-center bg-ink text-white" aria-label="Искать">
+            <SearchIcon className="size-5" />
+          </button>
+        </form>
       </div>
 
       {menuOpen && (
