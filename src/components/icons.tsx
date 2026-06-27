@@ -55,6 +55,22 @@ export function MaximizeIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M8 3H3v5M21 8V3h-5M16 21h5v-5M3 16v5h5" /></svg>;
 }
 
+export function ImageIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="8.5" cy="10" r="1.5" /><path d="m21 15-4.5-4.5L8 19" /></svg>;
+}
+
+export function MoveIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M12 3v18M3 12h18M8 7l4-4 4 4M8 17l4 4 4-4M7 8l-4 4 4 4M17 8l4 4-4 4" /></svg>;
+}
+
+export function UploadIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M12 16V4M7 9l5-5 5 5M4 20h16" /></svg>;
+}
+
+export function DownloadIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M12 4v12M7 11l5 5 5-5M4 20h16" /></svg>;
+}
+
 export function ChevronDownIcon(props: IconProps) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="m6 9 6 6 6-6" /></svg>;
 }

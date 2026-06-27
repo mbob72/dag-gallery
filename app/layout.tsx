@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
-      <body>
+      <body suppressHydrationWarning>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-C6YEGNN10T" strategy="beforeInteractive" />
         <Script id="google-analytics" strategy="beforeInteractive">
           {`
