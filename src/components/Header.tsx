@@ -18,7 +18,7 @@ import { Container } from './Container';
 import { SmartImage } from './SmartImage';
 
 const categories = categoriesData as { id: string; title: string }[];
-const telegramChannelUrl = 'https://t.me/kavkazartburau';
+const telegramChannelUrl = 'https://t.me/kavkazartbureau';
 const artworkById = new Map(artworks.map((artwork) => [artwork.id, artwork]));
 
 function Badge({ children }: { children: ReactNode }) {
