@@ -38,5 +38,10 @@
     "id": "graphics-people",
     "title": "Графика, люди",
     "collection": "graphics"
+  },
+  {
+    "id": "contemporary-painting",
+    "title": "Современная живопись",
+    "collection": "painting"
   }
 ]
